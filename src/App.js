@@ -6,6 +6,8 @@ import Home from "./pages /Home";
 import Annuaire from "./pages /Annuaire";
 import Handi from "./pages /handicape";
 import RentalPage from "./pages /RentalPage";
+import Register from "./pages /Register";
+
 import MaterialPage from "./components/MaterialPage";
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/register" element={<Register />}></Route>
           <Route path="/annuaire" element={<Annuaire />}></Route>
           <Route path="/comprendre-le-handicap" element={<Handi />}></Route>
           <Route path="/list-materiels" element={<RentalPage />}></Route>

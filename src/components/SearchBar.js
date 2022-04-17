@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ToggleGroup from "./ToggleGroup";
 
 const SearchBar = () => {
   const [show, setShow] = useState(true);
@@ -18,11 +17,7 @@ const SearchBar = () => {
     };
   }, []);
 
-  return (
-    <div className={`SearchBar ${show || "visibility"}`}>
-      <ToggleGroup />
-    </div>
-  );
+  return <div className={`SearchBar ${show || "visibility"}`}></div>;
 };
 
 export default SearchBar;

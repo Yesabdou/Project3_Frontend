@@ -22,3 +22,58 @@
   left: 20vw;
   margin: 0px 20px;
 }
+
+.toggleButtons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-evenly;
+  position: fixed;
+  left: 45px;
+  top: 250px;
+  z-index: 100;
+  width: 30%;
+  background-color: none !important;
+  color: white;
+}
+.toggleButtons h2 {
+  font-size: 2.5rem;
+  color: black;
+  padding-bottom: 20px;
+}
+.toggleButtons img {
+  width: 40px;
+}
+.button1On {
+  text-align: center;
+  width: 150px;
+  height: 20px;
+  margin: 10px;
+  padding: 10px 0 10px;
+  text-decoration: none;
+  list-style: none;
+  background-color: black;
+  border-radius: 50px;
+  font-size: 1.2rem;
+}
+.button1Off {
+  padding: 10px 0 10px;
+  height: 20px;
+
+  background-color: white;
+  color: black;
+}
+
+.toggleButtons:hover {
+  cursor: pointer;
+}
+.carte {
+  margin: 0px 20px 20px 30px;
+  border-color: #f7bc08;
+  border-style: ridge;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.187);
+}
+.carteBorder {
+}

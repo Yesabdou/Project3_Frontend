@@ -7,7 +7,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   align-content: stretch;
   position: fixed;
   left: 80px;
@@ -24,15 +24,11 @@
   transition: visibility 0s 0.2s, opacity 0.2s linear;
 }
 
-.toggleButton {
-  background-color: black;
-  color: white;
-  padding: 10px;
-  border-style: none;
-  font-family: "Roboto", sans-serif !important;
-}
 .toggleGroup {
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: stretch;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
 }

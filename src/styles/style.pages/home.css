@@ -103,12 +103,12 @@
   align-content: space-around;
   color: white;
   padding: 20px 80px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   z-index: 40;
 }
 
 .contact h2 {
-  font-size: 4rem;
+  font-size: 3rem;
   width: 50rem;
 }
 .buttonContact {

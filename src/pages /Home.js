@@ -22,7 +22,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init({ duration: 1000 });
   }, []);
   return (
     <div>
@@ -46,7 +46,7 @@ const Home = () => {
            */}
 
             <div className="fillButton">
-              <NavLink to="/comprendre-le-handicap">
+              <NavLink to="/annuaire">
                 <div>
                   Découvrer les associations adhérentes
                   <span></span>
