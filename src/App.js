@@ -8,7 +8,7 @@ import Handi from "./pages /handicape";
 import RentalPage from "./pages /RentalPage";
 import Register from "./pages /Register";
 
-import MaterialPage from "./components/MaterialPage";
+import MaterialPage from "./pages /MaterialPage";
 
 function App() {
   return (
