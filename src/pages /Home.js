@@ -1,16 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
 import { NavLink } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 const Home = () => {
+  const [showNavBar, setShowNavbar] = useState(true);
+  const controlSearchBAr = () => {
+    if (window.scrollY > 120) {
+      setShowNavbar(false);
+    } else {
+      setShowNavbar(true);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", controlSearchBAr);
+
+    return () => {
+      window.removeEventListener("scroll", controlSearchBAr);
+    };
+  }, []);
+
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
   return (
     <div>
-      <Navigation />
+      <div className={`appear ${showNavBar || "disapear"}`}>
+        <Navigation />
+      </div>
       <div className="page">
         <section className="presentation">
           <div data-aos="fade-left" className="blocText">
@@ -87,6 +105,10 @@ const Home = () => {
             </address>
           </div>
         </section>
+        <section className="PhraseBateau">
+          <h2> Mefie toi de l'eau qui dort </h2>
+        </section>
+        <section className="basDePage"></section>
       </div>
     </div>
   );

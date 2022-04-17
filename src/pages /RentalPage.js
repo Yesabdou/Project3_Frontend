@@ -1,4 +1,3 @@
-import Carte from "../components/MapLocation";
 import Navigation from "../components/Navigation";
 import ResultsContainer from "../components/ResultsContainer";
 import SearchBar from "../components/SearchBar";

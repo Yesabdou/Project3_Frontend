@@ -1,7 +1,6 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-const navigation = () => {
+const Navigation = () => {
   return (
     <div className="Navig">
       <ul>
@@ -34,6 +33,6 @@ const navigation = () => {
   );
 };
 
-export default navigation;
+export default Navigation;
 
 //pour l'authenfication regarder le truc de robin projet management client    Client

@@ -1,5 +1,3 @@
-import Associations from "../components/Associations";
-import Carte from "../components/MapLocation";
 import Navigation from "../components/Navigation";
 import ResultsContainerAssociation from "../components/ResultsContainerAssociation";
 import SearchBar from "../components/SearchBar";
@@ -13,7 +11,7 @@ const Annuaire = () => {
           <SearchBar />
 
           <ResultsContainerAssociation />
-          <Carte className="mapresults" />
+          <div></div>
         </section>
       </div>
     </div>

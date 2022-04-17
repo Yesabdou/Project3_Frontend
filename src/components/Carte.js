@@ -25,7 +25,7 @@ const Carte = () => {
           latitude: 48.85889775714565,
           zoom: 11,
         }}
-        style={{ width: "100%", height: "520px" }}
+        style={{ width: "90%", height: "520px" }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         <Marker

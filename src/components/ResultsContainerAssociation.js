@@ -1,10 +1,12 @@
 import React from "react";
 import Associations from "./Associations";
+import Carte from "./Carte";
 
 const ResultsContainerAssociation = () => {
   return (
     <div className="resultsContainer">
       <Associations />
+      <Carte />
     </div>
   );
 };

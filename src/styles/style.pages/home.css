@@ -1,8 +1,19 @@
+.appear {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.disapear {
+  opacity: 0;
+  transition: 2s !important;
+  transition-timing-function: linear !important;
+}
+
 .blocText {
   background-color: white;
   border-radius: 20px;
   width: 40vw;
-  height: 40vh;
+  height: 70%;
   position: relative;
   margin: 50px;
   padding: 40px;
@@ -112,4 +123,19 @@
 }
 .buttonContact:hover {
   color: white;
+}
+.PhraseBateau {
+  height: 300px;
+  background-color: #e5e5e5;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.PhraseBateau h2 {
+}
+
+.basDePage {
+  height: 200px;
+  background-color: #333333;
 }

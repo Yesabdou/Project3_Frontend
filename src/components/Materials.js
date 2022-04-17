@@ -19,7 +19,7 @@ const Materials = () => {
   return (
     <ul className="listMaterial">
       {materials.map((material, index) => (
-        <MaterialSquare key={material.id} material={material} />
+        <MaterialSquare key={index} material={material} />
       ))}
     </ul>
   );
