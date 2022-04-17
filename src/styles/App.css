@@ -60,3 +60,9 @@ body {
   border-style: inset;
   display: inline-block;
 }
+
+footer {
+  top: -150px;
+  background-color: grey;
+  height: 300px;
+}

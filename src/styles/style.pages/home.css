@@ -57,6 +57,26 @@
   text-align: justify;
   font-family: "Roboto", sans-serif;
 }
+
+.optionBoxes {
+  margin: 0px 80px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+}
+.optionBoxe {
+  background-color: white;
+  height: 250px;
+  width: 25%;
+  padding: 20px;
+  border-radius: 20px;
+  z-index: -100;
+}
+
 .contact {
   background-image: linear-gradient(rgba(0, 0, 0, 0.194), rgba(0, 0, 0, 0.838)),
     url("/src/assets/images/Handi1.jpg");
@@ -73,6 +93,7 @@
   color: white;
   padding: 20px 80px;
   font-size: 2rem;
+  z-index: 40;
 }
 
 .contact h2 {

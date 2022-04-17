@@ -67,7 +67,13 @@ const Home = () => {
             </p>
           </div>
         </section>
-
+        <section data-aos="slide-up" className="optionBoxes">
+          <div className="optionBoxe">
+            Vous souhaitez partager votre matériel{" "}
+          </div>
+          <div className="optionBoxe">Vous souhaitez beneficier d'une </div>
+          <div className="optionBoxe">Vous souhaitez smkjslhlhish</div>
+        </section>
         <section className="contact">
           <div>
             <h2> Vous souhaitez nous rejoindre ? </h2>
