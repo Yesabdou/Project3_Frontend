@@ -67,7 +67,20 @@ const Home = () => {
             </p>
           </div>
         </section>
-        <section className="contact"></section>
+
+        <section className="contact">
+          <div>
+            <h2> Vous souhaitez nous rejoindre ? </h2>
+            <p>Envoyez nous sans plus attendre un mail</p>
+          </div>
+          <div className="">
+            <address>
+              <a className="buttonContact" href="mailto:mrdou@hotmail.fr">
+                Contactez nous par mail
+              </a>
+            </address>
+          </div>
+        </section>
       </div>
     </div>
   );
