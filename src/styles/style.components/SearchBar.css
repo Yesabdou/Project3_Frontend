@@ -1,0 +1,29 @@
+.SearchBar {
+  background-color: #f7bc08;
+  border-radius: 25px;
+  padding: 30px;
+  width: 20%;
+  height: 464px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  position: fixed;
+  left: 80px;
+  z-index: 20;
+}
+
+.toggleButton {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-style: none;
+  font-family: "Roboto", sans-serif !important;
+}
+.toggleGroup {
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}

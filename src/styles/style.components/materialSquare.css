@@ -1,0 +1,72 @@
+.materialSquare {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  width: 45%;
+  height: 524px;
+  background-color: white;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.187);
+  border-radius: 20px;
+  margin-inline: 20px;
+  margin-bottom: 40px;
+  font-size: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.materialSquare:hover {
+  transform: scale(1.01);
+  z-index: 1.5;
+}
+
+.materialSquare:hover .preview {
+  opacity: 9;
+  transform: scaleY(1);
+}
+
+.preview {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  background: #f7bb08e4;
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.description {
+  padding: 20px;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.materialSquare > h1 {
+  color: #f7bc08;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.materialSquare > img {
+  width: 59%;
+  padding: 20px;
+  border-radius: 2.5rem !important;
+}
+
+.materialSquare > h2 {
+  color: #999999;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.p {
+  text-align: justify;
+  width: 60%;
+  font-size: 1.5rem;
+  padding: 20px;
+  font-weight: bold;
+}

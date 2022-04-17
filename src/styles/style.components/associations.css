@@ -1,0 +1,23 @@
+.listAssociation {
+  display: flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: fit-content;
+  flex-wrap: wrap;
+}
+.displayAss {
+  display: flex;
+  flex-direction: row;
+}
+.resultsAss {
+  width: 60vw;
+  margin: 80px;
+  margin-left: 0px;
+}
+.resultsContainer {
+  width: 67vw;
+  position: relative;
+  left: 20vw;
+  margin: 0px 20px;
+}

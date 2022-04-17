@@ -1,0 +1,75 @@
+.blocText {
+  background-color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height: 40vh;
+  position: relative;
+  margin: 50px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  font-family: "Roboto", sans-serif;
+}
+.blocText h1 {
+  font-size: 4rem;
+}
+.blocText p {
+  padding: 40px 0px;
+}
+.page {
+  top: 150px;
+  position: relative;
+}
+.presentation {
+  background-image: url("/src/assets/images/handicapalecole.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: stretch;
+}
+
+.contexte {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-content: stretch;
+}
+.contexte h2 {
+  font-size: 6rem;
+  padding-top: 80px;
+  padding-left: 80px;
+}
+.contexte p {
+  font-size: 1.5rem;
+  padding: 80px;
+  text-align: justify;
+  font-family: "Roboto", sans-serif;
+}
+.contact {
+  background-image: url("/src/assets/images/Handi1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: stretch;
+}
+.contact:hover {
+  background-color: #f7bc08;
+}

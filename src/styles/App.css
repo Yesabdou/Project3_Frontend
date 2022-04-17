@@ -1,0 +1,61 @@
+@import url(style.components//navigation.css);
+@import url(./style.components/associations.css);
+@import url(./style.components/associationSquare.css);
+@import url(./style.components/handi.css);
+@import url(./style.components/SearchBar.css);
+@import url(./style.components/map.css);
+@import url(./style.components/boutton.css);
+@import url(./style.pages/home.css);
+@import url(./style.pages/RentalPage.css);
+@import url(./style.components/materials.css);
+@import url(./style.components/materialSquare.css);
+@import url(./style.components/materialPage.css);
+@import url(./style.components/boxes.css);
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
+
+.App {
+}
+body {
+  font-family: Montserrat, sans-serif;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --titles: #f7bc08;
+  --white: #faf0e6;
+} /* Var colors */
+
+.mapboxgl-control-container {
+  visibility: hidden;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+.button {
+  background-color: #f7bc08;
+  padding: 20px;
+  border-radius: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: white;
+  border-style: none;
+  outline: none;
+}
+.button:hover {
+  background-color: white;
+  border-color: #f7bc08;
+  border-style: outset;
+  color: #f7bc08;
+  outline: none;
+  border-style: inset;
+  display: inline-block;
+}

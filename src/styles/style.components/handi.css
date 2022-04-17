@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
+
+.police {
+  font-family: "Roboto", sans-serif;
+  margin: 0px 130px;
+  text-align: justify;
+  padding: 10px;
+}
+
+.police h1 {
+  font-family: "Roboto", sans-serif;
+  padding: 20px 0px;
+}
+
+.police h3 {
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}
+.police h2 {
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}
+.police P {
+  line-height: 2rem;
+}
+
+.police ul li {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  padding: 10px 20px;
+  color: black;
+}
+
+header ul {
+  list-style: none;
+}
+header ul li {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  padding: 20px 0px;
+  color: white;
+  font-weight: bold;
+}
+header ul li a:visited {
+  color: white;
+}
+header ul li a:hover {
+  color: black !important;
+}
+header ul li a:link {
+  color: white;
+}
+
+header {
+  position: relative;
+  background-color: #f7bc08;
+  height: 250px;
+  padding: 40px 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.quote {
+  background-color: white;
+  font-size: 2rem;
+  font-style: italic;
+  padding: 30px;
+}
+.quote :hover {
+  background-color: #c09411c2;
+}
+.flotImg {
+  float: left;
+  padding-right: 20px;
+}
+.chiffresClefs {
+  float: left;
+  padding-right: 20px;
+  height: 510px;
+}

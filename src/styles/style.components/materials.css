@@ -1,0 +1,16 @@
+.listMaterial {
+  display: flex;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+  flex-wrap: wrap;
+}
+.listMaterial a {
+  text-decoration: none;
+  padding: 10px;
+}
+
+.listMaterial a:hover {
+  color: black;
+}

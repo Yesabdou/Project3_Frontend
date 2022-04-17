@@ -1,0 +1,22 @@
+.flex {
+  display: flex;
+  margin: 40px;
+}
+
+.pictureMaterial img {
+  border-radius: 2rem;
+  padding: 30px;
+  width: 25rem;
+  height: 464px;
+
+  position: relative;
+}
+.infoMaterial {
+  width: 70rem;
+  margin-left: 40px;
+  font-family: "Roboto", sans-serif;
+}
+.infoMaterial h1 {
+  text-transform: uppercase;
+  color: #f7bc08;
+}
