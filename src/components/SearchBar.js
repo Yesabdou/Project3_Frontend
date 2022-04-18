@@ -29,14 +29,13 @@ const SearchBar = (props) => {
   const categories = ["Fauteuil roulant", "Chaise adaptée", "Matériel ludique"];
   return (
     <div className={`SearchBar ${show || "visibility"}`}>
+      <h2>
+        <span>
+          <img src={filter} alt="" />
+        </span>
+        &emsp;Filtrer
+      </h2>
       <ul className="toggleButtons">
-        <h2>
-          <span>
-            <img src={filter} alt="" />
-          </span>
-          &emsp;Filtrer
-        </h2>
-
         <li
           onClick={props.toggle}
           id="carte"

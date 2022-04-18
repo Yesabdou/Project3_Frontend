@@ -7,7 +7,7 @@ import SearchBar from "../components/SearchBar";
 const Annuaire = () => {
   const [list, setList] = useState(true);
   const [map, setMap] = useState(false);
-  const [button1, setButton1] = useState(true);
+  const [button1, setButton1] = useState(false);
 
   const handleModals = (e) => {
     if (e.target.id === "carte") {

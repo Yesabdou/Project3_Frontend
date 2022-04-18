@@ -1,0 +1,31 @@
+.formLog {
+  position: relative;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #f7bc08;
+  margin: 0px 300px;
+  padding: 100px;
+  border-radius: 20px;
+}
+.formLog form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.formLog label {
+  padding: 10px 20px;
+}
+.formLog input {
+  border-radius: 9px;
+  border-style: none;
+  margin: 10px;
+  padding: 8px;
+  width: 40vw;
+}
+.flexForm {
+}

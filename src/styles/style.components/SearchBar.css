@@ -1,7 +1,7 @@
 .SearchBar {
   border-radius: 25px;
   padding: 30px;
-  width: 20%;
+  width: 20vw;
   height: 464px;
   display: flex;
   flex-direction: column;
