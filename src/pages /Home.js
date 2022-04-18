@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 const Home = () => {
   const [showNavBar, setShowNavbar] = useState(true);
   const controlSearchBAr = () => {
-    if (window.scrollY > 120) {
+    if (window.scrollY > 10) {
       setShowNavbar(false);
     } else {
       setShowNavbar(true);
@@ -26,9 +26,12 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className={`appear ${showNavBar || "disapear"}`}>
+      {/* <div className={`${showNavBar ? "appear" : "disapear"}`}>
         <Navigation />
-      </div>
+      </div> */}
+
+      <Navigation navEffect={`${showNavBar ? "appear" : "disapear"}`} />
+
       <div className="page">
         <section className="presentation">
           <div data-aos="fade-left" className="blocText">
@@ -85,7 +88,7 @@ const Home = () => {
             </p>
           </div>
         </section>
-        <section data-aos="slide-up" className="optionBoxes">
+        <section data-aos="fade-up" className="optionBoxes">
           <div className="optionBoxe">
             <div>
               <svg

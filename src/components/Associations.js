@@ -10,10 +10,20 @@ const Associations = () => {
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    axios
-      .get("https://handishare.herokuapp.com/api/user")
-
-      .then((res) => setAssociation(res.data));
+    const getFunction = async (req, res) => {
+      try {
+        const res = await axios.get(
+          "https://handishare.herokuapp.com/api/user"
+        );
+        setAssociation(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getFunction();
+    return () => {
+      // getFunction.Abort(); cleanup function
+    };
   }, []);
 
   return (

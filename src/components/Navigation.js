@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-const Navigation = () => {
+const Navigation = (props) => {
   return (
-    <div className="Navig">
+    <div className={`Navig ${props.navEffect}`}>
       <ul>
         <picture>
           <img src={logo} className="logo" alt="aaa" />
