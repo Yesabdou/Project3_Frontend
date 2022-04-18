@@ -15,8 +15,11 @@ const AssociationPage = () => {
 
       .then((res) => setOneAssociation(res.data));
   }, []);
+
   const style = {
     padding: "10px",
+    fontsize: "50px",
+
     color: "#090909",
     cursor: "pointer",
     background: "#f7bc08",
@@ -57,26 +60,14 @@ const AssociationPage = () => {
             className="carteBorder"
             mapboxAccessToken="pk.eyJ1IjoibXJkb3UiLCJhIjoiY2wxdmJydXA4MDU5eTNpb2h5bzF5emg1NyJ9.ryBHDt6d1JBVjXR29lUaqw"
             initialViewState={{
-              longitude: `${association.longitude}`,
-              latitude: `${association.latitude}`,
-              // longitude: 2.341178005531811,
-              // latitude: 48.85889775714565,
+              longitude: `${association?.longitude}`,
+              latitude: `${association?.latitude}`,
+
               zoom: 14,
             }}
             style={{ width: "100%", height: "520px" }}
             mapStyle="mapbox://styles/mapbox/streets-v9"
           >
-            {/* {showPopup && (
-            <Popup
-              longitude={association.longitude}
-              latitude={association.latitude}
-              anchor="bottom"
-              onClose={() => setShowPopup(false)}
-            >
-              You are here
-            </Popup>
-          )} */}
-
             <Marker
               longitude={association?.longitude}
               latitude={association?.latitude}

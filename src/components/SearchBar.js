@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import Filtres from "./buttons/Filtre";
+import filter from "../assets/images/Filter.png";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [show, setShow] = useState(true);
   const controlSearchBAr = () => {
     if (window.scrollY > 800) {
@@ -17,7 +19,43 @@ const SearchBar = () => {
     };
   }, []);
 
-  return <div className={`SearchBar ${show || "visibility"}`}></div>;
+  const conditions = [
+    "Etat neuf",
+    "Très bon état",
+    "Bon état",
+    "Etat satisfaisant",
+  ];
+
+  const categories = ["Fauteuil roulant", "Chaise adaptée", "Matériel ludique"];
+  return (
+    <div className={`SearchBar ${show || "visibility"}`}>
+      <ul className="toggleButtons">
+        <h2>
+          <span>
+            <img src={filter} alt="" />
+          </span>
+          &emsp;Filtrer
+        </h2>
+
+        <li
+          onClick={props.toggle}
+          id="carte"
+          className={`button1On  ${props.button || "button1Off"}`}
+        >
+          Voir la carte
+        </li>
+        <li
+          onClick={props.toggle}
+          id="liste"
+          className={`button1On  ${props.button && "button1Off"}`}
+        >
+          Voir la liste
+        </li>
+      </ul>
+      <Filtres array={conditions} />
+      <Filtres array={categories} />
+    </div>
+  );
 };
 
 export default SearchBar;

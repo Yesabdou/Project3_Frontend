@@ -63,3 +63,16 @@
 .fillButton div span:nth-child(4) {
   --n: 4;
 }
+
+.filtersButton {
+  -webkit-appearance: none;
+  text-align: center;
+  border-style: none;
+  background-color: black;
+  color: white;
+  padding: 10px 70px;
+  margin-top: 20px;
+  position: relative;
+  top: 40px;
+  font-weight: bold;
+}

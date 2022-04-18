@@ -3,8 +3,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import MaterialSquare from "./MaterialSquare";
 
-// import associations from "./Associations.json";
-
 const Materials = () => {
   const [materials, setMaterial] = useState([]);
 

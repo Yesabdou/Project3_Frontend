@@ -4,8 +4,6 @@ import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Navigation from "../components/Navigation";
 
-// import associations from "./Associations.json";
-
 const MaterialPage = () => {
   const [OneMaterial, setOneMaterial] = useState({});
   const { id } = useParams(); // dans le router j'ai mis un /:id ue je recupere ici avec le useParams
