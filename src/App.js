@@ -9,6 +9,7 @@ import RentalPage from "./pages /RentalPage";
 import Register from "./pages /Register";
 
 import MaterialPage from "./pages /MaterialPage";
+import AssociationPage from "./pages /AssociationPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/comprendre-le-handicap" element={<Handi />}></Route>
           <Route path="/list-materiels" element={<RentalPage />}></Route>
           <Route path="/material/:id" element={<MaterialPage />}></Route>
+          <Route path="/association/:id" element={<AssociationPage />}></Route>
 
           {/* renvoyer a home si jamais il trouve pas la route : */}
           <Route path="*" element={<Home />}></Route>

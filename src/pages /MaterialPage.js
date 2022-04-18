@@ -25,7 +25,6 @@ const MaterialPage = () => {
         <section className="pictureMaterial">
           <img src={OneMaterial.picture} alt="photoMat" />
         </section>
-        <p>{OneMaterial.owner.pseudo}</p>
         <section className="infoMaterial">
           <div className="fillButton">
             <NavLink to="/list-materiels">

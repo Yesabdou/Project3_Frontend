@@ -6,7 +6,7 @@ import filter from "../assets/images/Filter.png";
 const ResultsContainerAssociation = () => {
   const [list, setList] = useState(true);
   const [map, setMap] = useState(false);
-  const [button1, setButton1] = useState(false);
+  const [button1, setButton1] = useState(true);
 
   const handleModals = (e) => {
     if (e.target.id === "carte") {

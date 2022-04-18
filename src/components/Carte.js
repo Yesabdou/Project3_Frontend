@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map from "react-map-gl";
 import { Marker } from "react-map-gl";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 const Carte = () => {
-  const onMarkerClick = (event) => {
-    alert("Liste des equipement disponnible dans cette association : "); //  provisoire a remplacer avec une div cachée
-    event.stopPropagation();
-  };
+  const [associations, setAssociation] = useState([]);
+
+  useEffect(() => {
+    //dès que le composant est monté jouer axios
+    axios
+      .get("https://handishare.herokuapp.com/api/user")
+
+      .then((res) => setAssociation(res.data));
+  }, []);
 
   const style = {
     padding: "10px",
-    color: "#fff",
+    color: "#090909",
     cursor: "pointer",
-    background: "#1978c8",
+    background: "#f7bc08",
     borderRadius: "6px",
   };
   return (
@@ -29,14 +36,23 @@ const Carte = () => {
         style={{ width: "100%", height: "520px" }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        <Marker
-          longitude={2.388215968089895}
-          latitude={48.852487397292606}
-          anchor="center"
-          onClick={onMarkerClick}
-        >
-          <div style={style}> Show ✨</div>
-        </Marker>
+        <div>
+          {associations.map((association, index) => (
+            <Marker
+              longitude={association.longitude}
+              latitude={association.latitude}
+              anchor="center"
+              onClick={() => {
+                window.location.href = `/association/${association._id}`;
+              }}
+            >
+              <div style={style}>
+                {association.pseudo}
+                📍
+              </div>
+            </Marker>
+          ))}
+        </div>
       </Map>
     </div>
   );

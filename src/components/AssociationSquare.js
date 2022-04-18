@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AssociationSquare = ({ association }) => {
   return (
@@ -13,10 +14,11 @@ const AssociationSquare = ({ association }) => {
       <div className="Description">
         <p>{association.bio}</p>
       </div>
-      <div className="preview">
-        <div>
-          <p className="text"> Affichez tout le materiel disponnible </p>
-        </div>
+
+      <div>
+        <Link to={{ pathname: `/association/${association._id}` }}>
+          <p className="preview"> Vérifier les disponibilités </p>
+        </Link>
       </div>
     </li>
   );

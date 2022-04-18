@@ -1,10 +1,12 @@
 import Navigation from "../components/Navigation";
+import comprendre from "../assets/images/comprendre.jpg";
 
 const Handi = () => {
   return (
     <div>
       <Navigation />
       <div className="page">
+        <div className="comprendreHandicape"></div>
         <header>
           <h1 className="page-titlendre">Comprendre le handicap</h1>
           <nav

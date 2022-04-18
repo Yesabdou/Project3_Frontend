@@ -13,9 +13,6 @@ const MaterialSquare = ({ material }) => {
         </div>
         <div className="p">
           <div>
-            {/* <NavLink to="/material/:id">
-              <p className="preview"> Vérifier les disponibilités </p>
-            </NavLink> */}
             <Link to={{ pathname: `/material/${material._id}` }}>
               <p className="preview"> Vérifier les disponibilités </p>
             </Link>

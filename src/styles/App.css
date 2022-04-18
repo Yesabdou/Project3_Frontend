@@ -6,6 +6,8 @@
 @import url(./style.components/boutton.css);
 @import url(./style.pages/home.css);
 @import url(./style.pages/RentalPage.css);
+@import url(./style.pages/associationPage.css);
+
 @import url(./style.components/materials.css);
 @import url(./style.components/materialSquare.css);
 @import url(./style.components/materialPage.css);

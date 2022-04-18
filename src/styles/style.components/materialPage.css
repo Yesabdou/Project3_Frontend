@@ -4,7 +4,7 @@
 }
 
 .pictureMaterial img {
-  border-radius: 2rem;
+  border-radius: 4rem !important;
   padding: 30px;
   width: 25rem;
   height: 464px;
