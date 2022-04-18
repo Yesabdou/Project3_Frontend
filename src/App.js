@@ -10,6 +10,7 @@ import Register from "./pages /Register";
 
 import MaterialPage from "./pages /MaterialPage";
 import AssociationPage from "./pages /AssociationPage";
+import LogIn from "./pages /Login";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/register" element={<Register />}></Route>
+          <Route path="/user/register" element={<Register />}></Route>
+          <Route path="/user/login" element={ <LogIn /> } />
           <Route path="/annuaire" element={<Annuaire />}></Route>
           <Route path="/comprendre-le-handicap" element={<Handi />}></Route>
           <Route path="/list-materiels" element={<RentalPage />}></Route>

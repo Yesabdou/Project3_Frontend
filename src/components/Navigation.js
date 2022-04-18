@@ -1,6 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
+
+const Navigation = () => {
+  const { 
+    isLoggedIn,
+    user,
+    logOutUser
+  } = useContext(AuthContext);
+
 const Navigation = (props) => {
+
   return (
     <div className={`Navig ${props.navEffect}`}>
       <ul>
@@ -28,6 +39,24 @@ const Navigation = (props) => {
         >
           <li>Comprendre le handicap</li>
         </NavLink>
+
+        {isLoggedIn && (
+        <>
+          <Link to="/projects">
+            <button>Projects</button>
+          </Link>        
+          <button onClick={logOutUser}>Logout</button>
+          <span>{user && user.name}</span>
+        </>
+      )}
+ 
+      {!isLoggedIn && (
+        <>
+          <Link to="/signup"> <button>Sign Up</button> </Link>
+          <Link to="/login"> <button>Login</button> </Link>
+        </>
+      )}
+        
       </ul>
     </div>
   );
