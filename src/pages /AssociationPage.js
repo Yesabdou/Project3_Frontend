@@ -14,7 +14,7 @@ const AssociationPage = () => {
       .get(`https://handishare.herokuapp.com/api/user/${id}`)
 
       .then((res) => setOneAssociation(res.data));
-  });
+  }, []);
   const style = {
     padding: "10px",
     color: "#090909",
