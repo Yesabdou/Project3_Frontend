@@ -16,7 +16,7 @@ const MaterialPage = () => {
       .get(`https://handishare.herokuapp.com/api/material/${id}`)
 
       .then((res) => setOneMaterial(res.data).populate("owner"));
-  });
+  }, []);
   return (
     <div className="pageOneMaterial">
       <Navigation />

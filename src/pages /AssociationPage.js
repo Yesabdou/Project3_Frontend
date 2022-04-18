@@ -22,7 +22,7 @@ const AssociationPage = () => {
     background: "#f7bc08",
     borderRadius: "6px",
   };
-  const [showPopup, setShowPopup] = React.useState(true);
+  // const [showPopup, setShowPopup] = React.useState(true);
 
   return (
     <div className="pageOneAssociation">
@@ -52,18 +52,21 @@ const AssociationPage = () => {
           <p>Adresse :{association.adresse}</p>
           <p>Telephone :{association.phone} </p>
         </section>
-        <Map
-          className="carteBorder"
-          mapboxAccessToken="pk.eyJ1IjoibXJkb3UiLCJhIjoiY2wxdmJydXA4MDU5eTNpb2h5bzF5emg1NyJ9.ryBHDt6d1JBVjXR29lUaqw"
-          initialViewState={{
-            longitude: 2.341178005531811,
-            latitude: 48.85889775714565,
-            zoom: 11,
-          }}
-          style={{ width: "100%", height: "520px" }}
-          mapStyle="mapbox://styles/mapbox/streets-v9"
-        >
-          {/* {showPopup && (
+        {association?.latitude && (
+          <Map
+            className="carteBorder"
+            mapboxAccessToken="pk.eyJ1IjoibXJkb3UiLCJhIjoiY2wxdmJydXA4MDU5eTNpb2h5bzF5emg1NyJ9.ryBHDt6d1JBVjXR29lUaqw"
+            initialViewState={{
+              longitude: `${association.longitude}`,
+              latitude: `${association.latitude}`,
+              // longitude: 2.341178005531811,
+              // latitude: 48.85889775714565,
+              zoom: 14,
+            }}
+            style={{ width: "100%", height: "520px" }}
+            mapStyle="mapbox://styles/mapbox/streets-v9"
+          >
+            {/* {showPopup && (
             <Popup
               longitude={association.longitude}
               latitude={association.latitude}
@@ -73,14 +76,16 @@ const AssociationPage = () => {
               You are here
             </Popup>
           )} */}
-          {/* <Marker
-            longitude={association.longitude}
-            latitude={association.latitude}
-            anchor="center"
-          >
-            <div style={style}> Show 📍</div>
-          </Marker> */}
-        </Map>
+
+            <Marker
+              longitude={association?.longitude}
+              latitude={association?.latitude}
+              anchor="center"
+            >
+              <div style={style}> Show 📍</div>
+            </Marker>
+          </Map>
+        )}
       </div>
     </div>
   );

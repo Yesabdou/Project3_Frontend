@@ -9,8 +9,11 @@ const Navigation = () => {
     user,
     logOutUser
   } = useContext(AuthContext);
+
+const Navigation = (props) => {
+
   return (
-    <div className="Navig">
+    <div className={`Navig ${props.navEffect}`}>
       <ul>
         <picture>
           <img src={logo} className="logo" alt="aaa" />
