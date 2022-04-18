@@ -35,9 +35,6 @@ const Navigation = (props) => {
 
         {isLoggedIn && (
           <>
-            <Link to="/projects">
-              <button>Projects</button>
-            </Link>
             <button onClick={logOutUser}>Logout</button>
             <span>{user && user.name}</span>
           </>
