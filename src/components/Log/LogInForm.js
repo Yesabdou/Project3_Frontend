@@ -41,7 +41,7 @@ function LoginForm(props) {
       <div>
         <form onSubmit={handleLoginSubmit}>
           <div>
-            <label htm lFor="email">
+            <label htmlFor="email">
               Nom de l'association
             </label>
             <input type="text" name="pseudo" id="pseudo" value={pseudo} onChange={handlePseudo} />
