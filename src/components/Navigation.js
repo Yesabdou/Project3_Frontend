@@ -3,15 +3,8 @@ import logo from "../assets/images/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
-const Navigation = () => {
-  const { 
-    isLoggedIn,
-    user,
-    logOutUser
-  } = useContext(AuthContext);
-
 const Navigation = (props) => {
-
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   return (
     <div className={`Navig ${props.navEffect}`}>
       <ul>
@@ -41,27 +34,30 @@ const Navigation = (props) => {
         </NavLink>
 
         {isLoggedIn && (
-        <>
-          <Link to="/projects">
-            <button>Projects</button>
-          </Link>        
-          <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
-        </>
-      )}
- 
-      {!isLoggedIn && (
-        <>
-          <Link to="/signup"> <button>Sign Up</button> </Link>
-          <Link to="/login"> <button>Login</button> </Link>
-        </>
-      )}
-        
+          <>
+            <Link to="/projects">
+              <button>Projects</button>
+            </Link>
+            <button onClick={logOutUser}>Logout</button>
+            <span>{user && user.name}</span>
+          </>
+        )}
+
+        {!isLoggedIn && (
+          <>
+            <Link to="/user/register">
+              {" "}
+              <button>Sign Up</button>{" "}
+            </Link>
+            <Link to="/user/login">
+              {" "}
+              <button>Login</button>{" "}
+            </Link>
+          </>
+        )}
       </ul>
     </div>
   );
 };
 
 export default Navigation;
-
-//pour l'authenfication regarder le truc de robin projet management client    Client
