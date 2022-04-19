@@ -8,7 +8,7 @@ import Handi from "./pages /infoPages/handicape";
 import Stock from "./pages /materiel/Stock";
 import Register from "./pages /logPages/Register";
 
-import MaterialPage from "./pages /materiel/CreateMaterialPage";
+import MaterialPage from "./pages /materiel/MaterialPage";
 import AssociationPage from "./pages /Association/AssociationPage";
 import LogIn from "./pages /logPages/Login";
 import AddMaterialPage from "./pages /materiel/CreateMaterialPage";

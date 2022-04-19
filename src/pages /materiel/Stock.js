@@ -14,7 +14,6 @@ const Stock = () => {
       <div className="page">
         <section className="displayResults">
           <SearchBar />
-
           <div className="resultsContainer" data-aos="fade-up">
             <ResultsContainer />
           </div>

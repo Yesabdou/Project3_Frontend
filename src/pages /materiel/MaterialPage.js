@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import Navigation from "../components/Navigation";
+import Navigation from "../../components/Navigation";
 
 const MaterialPage = () => {
   const [OneMaterial, setOneMaterial] = useState({});
@@ -42,6 +42,7 @@ const MaterialPage = () => {
           </h3>
         </section>
       </div>
+      <section className="basDePage"></section>
     </div>
   );
 };

@@ -104,7 +104,19 @@
   border-radius: 50px;
   font-size: 1rem;
   width: 110px;
+  color: white;
 }
+
+.button1On a:visited {
+  color: white;
+}
+.button1Onli a:hover {
+  color: black !important;
+}
+.button1On a:link {
+  color: white;
+}
+
 .button1Off {
   padding: 10px 20px;
   height: 20px;
@@ -119,7 +131,4 @@
 }
 .carte {
   margin: 0px 20px 20px 30px;
-  border-color: #f7bc08;
-  border-style: ridge;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.187);
 }
