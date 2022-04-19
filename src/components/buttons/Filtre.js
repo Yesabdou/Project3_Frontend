@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Filtre = (props) => {
+  const [options, setOptions] = useState([]);
+
   return (
     <div>
       <label for="filter-select"> </label>

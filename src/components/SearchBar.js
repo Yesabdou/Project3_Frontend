@@ -51,8 +51,8 @@ const SearchBar = (props) => {
           Voir la liste
         </li>
       </ul>
-      <Filtres array={conditions} />
-      <Filtres array={categories} />
+      <Filtres array={conditions} criteria={"condition"} />
+      <Filtres array={categories} criteria={"category"} />
     </div>
   );
 };
