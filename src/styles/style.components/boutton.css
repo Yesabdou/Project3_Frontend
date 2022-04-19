@@ -92,14 +92,7 @@
   background-color: none !important;
   color: white;
 }
-.SearchBar h2 {
-  font-size: 2.5rem;
-  color: black;
-  padding-bottom: 20px;
-}
-.SearchBar img {
-  width: 40px;
-}
+
 .button1On {
   text-align: center;
   height: 22px;

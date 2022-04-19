@@ -14,9 +14,9 @@
 }
 
 .resultsContainer {
-  position: fixed;
+  position: absolute;
   width: 69vw;
-  left: 30vw;
+  right: -60px;
 }
 
 .carteBorder {

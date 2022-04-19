@@ -33,7 +33,7 @@ const SearchBar = (props) => {
         <span>
           <img src={filter} alt="" />
         </span>
-        &emsp;Filtrer
+        &ensp;Filtrer
       </h2>
       <ul className="toggleButtons">
         <li

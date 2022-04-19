@@ -2,17 +2,17 @@ import "./styles/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 // import { useState } from "react";
-import Home from "./pages /Home";
-import Annuaire from "./pages /Annuaire";
-import Handi from "./pages /handicape";
-import RentalPage from "./pages /RentalPage";
-import Register from "./pages /Register";
+import Home from "./pages /infoPages/Home";
+import Annuaire from "./pages /Association/Annuaire";
+import Handi from "./pages /infoPages/handicape";
+import Stock from "./pages /materiel/Stock";
+import Register from "./pages /logPages/Register";
 
-import MaterialPage from "./pages /MaterialPage";
-import AssociationPage from "./pages /AssociationPage";
-import LogIn from "./pages /Login";
-import AddMaterialPage from "./pages /CreateMaterialPage";
-import Profil from "./pages /Profil";
+import MaterialPage from "./pages /materiel/CreateMaterialPage";
+import AssociationPage from "./pages /Association/AssociationPage";
+import LogIn from "./pages /logPages/Login";
+import AddMaterialPage from "./pages /materiel/CreateMaterialPage";
+import Profil from "./pages /logPages/Profil";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route path="/user/login" element={<LogIn />}></Route>
           <Route path="/annuaire" element={<Annuaire />}></Route>
           <Route path="/comprendre-le-handicap" element={<Handi />}></Route>
-          <Route path="/list-materiels" element={<RentalPage />}></Route>
+          <Route path="/list-materiels" element={<Stock />}></Route>
           <Route path="/material/:id" element={<MaterialPage />}></Route>
           <Route path="/material/new" element={<AddMaterialPage />}></Route>
           <Route path="/association/:id" element={<AssociationPage />}></Route>

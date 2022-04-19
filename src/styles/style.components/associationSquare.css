@@ -1,14 +1,13 @@
 .associationSquare {
   position: relative;
-  width: 14vw;
-  height: 300px;
+  width: 20%;
+  height: 80%;
   background-color: white;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.187);
   border-radius: 20px;
   margin-inline: 20px;
   margin-bottom: 40px;
-
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,11 +45,12 @@
 
 .text {
   padding: 20px;
+  height: 300px;
 }
 
 .logoAss {
   width: 80%;
-  height: 100px;
+  height: 130px;
   border-radius: 20px;
 
   padding-top: 9px;

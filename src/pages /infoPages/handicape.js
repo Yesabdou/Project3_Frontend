@@ -1,14 +1,20 @@
-import Navigation from "../components/Navigation";
-import comprendre from "../assets/images/comprendre.jpg";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import Navigation from "../../components/Navigation";
 const Handi = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <div>
       <Navigation />
       <div className="page">
         <div className="comprendreHandicape"></div>
         <header>
-          <h1 className="page-titlendre">Comprendre le handicap</h1>
+          <h1 data-aos="zoom-in" className="page-titlendre">
+            Comprendre le handicap
+          </h1>
           <nav
             aria-label="Sommaire de la page"
             className="sommaire tinytoc tiny_toc"

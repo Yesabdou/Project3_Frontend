@@ -1,3 +1,106 @@
 .associationLogo {
   width: 400px;
 }
+
+.infoAssociation {
+  background-color: #f7bc08;
+  margin: 40px 80px;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.infoAssociation h1 {
+  color: black;
+  font-size: 3rem;
+}
+.infoAssociation h2 {
+  color: #a5a3a3;
+}
+.infoAssociation svg {
+  width: 60px;
+  fill: white;
+}
+.infoAssociation svg:hover {
+  fill: black;
+  cursor: pointer;
+}
+
+.plusInfos {
+  background-color: white;
+  margin: 40px 80px;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.logoSolo {
+  width: 250px;
+}
+
+.infoContainer {
+  width: 70%;
+}
+.plusInfos h3 {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.edit {
+  padding: 13px;
+  fill: white;
+  background-color: #f7bc08;
+  border-radius: 100px;
+}
+.edit svg {
+  width: 34px;
+  height: 30px;
+  position: relative;
+  left: 4px;
+}
+.edit:hover {
+  background-color: rgb(40, 40, 213);
+  cursor: pointer;
+}
+
+.delete {
+  padding: 15px;
+  fill: white;
+  background-color: #f7bc08;
+  border-radius: 100px;
+  position: relative;
+  right: -40px;
+}
+.delete svg {
+  width: 27px;
+  height: 25px;
+  position: relative;
+  left: 0px;
+}
+.delete:hover {
+  background-color: rgb(207, 72, 72);
+  cursor: pointer;
+}
+
+.crudbutton {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.ownedMaterial {
+  margin: 40px 65px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
+  border-inline: 100px;
+}

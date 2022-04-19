@@ -53,7 +53,7 @@ function RegisterForm(props) {
     <div className="formLog">
       <form onSubmit={handleSignupSubmit}>
         <div className="flexForm">
-          <label htmlFor="email">Nom de l'association</label>
+          <label htmlFor="pseudo">Nom de l'association</label>
           <input
             type="text"
             name="pseudo"
@@ -122,11 +122,14 @@ function RegisterForm(props) {
             onChange={handleBio}
           />
         </div>
-        <div>
-          <button onClick={(e) => e.preventDefault} type="submit">
-            Sign Up
-          </button>
-        </div>
+
+        <button
+          className="buttonCss"
+          onClick={(e) => e.preventDefault}
+          type="submit"
+        >
+          Sign Up
+        </button>
       </form>
 
       <div>

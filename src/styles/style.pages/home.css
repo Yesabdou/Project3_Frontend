@@ -73,7 +73,7 @@
 }
 
 .optionBoxes {
-  margin: 0px 80px;
+  margin: 50px 80px;
   margin-bottom: 80px;
   display: flex;
   flex-direction: row;
@@ -111,8 +111,9 @@
 }
 
 .contact h2 {
-  font-size: 3rem;
-  width: 50rem;
+  font-size: 3.5rem;
+  width: 53rem;
+  margin-right: 170px;
 }
 .buttonContact {
   padding: 20px;

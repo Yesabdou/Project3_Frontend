@@ -6,8 +6,9 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+
   align-content: stretch;
   position: fixed;
   left: 80px;
@@ -31,4 +32,16 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: baseline;
+}
+
+.SearchBar h2 {
+  font-size: 2.5rem;
+  color: black;
+  padding-bottom: 20px;
+}
+.SearchBar img {
+  width: 40px;
+  position: relative;
+
+  top: 5px;
 }

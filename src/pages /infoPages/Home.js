@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navigation from "../components/Navigation";
+import Navigation from "../../components/Navigation";
 import { NavLink } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";

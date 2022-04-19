@@ -1,18 +1,18 @@
 import React from "react";
-import LoginForm from "../components/Log/LogInForm";
-import Navigation from "../components/Navigation";
+import Navigation from "../../components/Navigation";
+import RegisterForm from "../../components/Log/RegisterForm";
 
 // import { useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 // import axios from "axios";
 
-const LogIn = () => {
+const Register = () => {
   return (
     <div>
       <Navigation />
-      <LoginForm />
+      <RegisterForm />
     </div>
   );
 };
 
-export default LogIn;
+export default Register;

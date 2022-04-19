@@ -2,11 +2,7 @@ import Materials from "./material/Materials";
 import filter from "../assets/images/Filter.png";
 
 const ResultsContainer = () => {
-  return (
-    <div className="resultsContainer">
-      <Materials />
-    </div>
-  );
+  return <Materials />;
 };
 
 export default ResultsContainer;

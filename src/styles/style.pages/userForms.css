@@ -1,6 +1,6 @@
 .formLog {
   position: relative;
-  top: 200px;
+  top: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,14 +8,14 @@
   align-content: center;
   justify-content: center;
   background-color: #f7bc08;
-  margin: 0px 300px;
-  padding: 100px;
+  margin: 0px 360px;
+  padding: 40px;
   border-radius: 20px;
 }
 .formLog form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  position: relative;
 }
 .formLog label {
   padding: 10px 20px;
@@ -23,9 +23,30 @@
 .formLog input {
   border-radius: 9px;
   border-style: none;
-  margin: 10px;
+  margin: 7px;
   padding: 8px;
   width: 40vw;
 }
-.flexForm {
+
+.formLog a {
+  text-align: center;
+}
+
+.formLog a:hover {
+  color: white;
+}
+
+.buttonCss {
+  border-radius: 9px;
+  border-style: none;
+  background-color: black;
+  color: #f7bc08;
+  padding: 10px 30px;
+  margin: 20px 180px;
+}
+.buttonCss:hover {
+  background-color: white;
+  color: black;
+  align-items: center;
+  justify-items: center;
 }

@@ -1,12 +1,12 @@
 .materialSquare {
   font-family: "Roboto", sans-serif;
   position: relative;
-  width: 45%;
+  width: 25%;
   height: 524px;
   background-color: white;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.187);
   border-radius: 20px;
-  margin-inline: 20px;
+  margin-inline: 35px;
   margin-bottom: 40px;
   font-size: 0.5rem;
   display: flex;
