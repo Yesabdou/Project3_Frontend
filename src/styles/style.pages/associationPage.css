@@ -20,7 +20,7 @@
   font-size: 3rem;
 }
 .infoAssociation h2 {
-  color: #a5a3a3;
+  color: #bdb9b9;
 }
 .infoAssociation svg {
   width: 60px;
@@ -136,4 +136,15 @@
 .backButton {
   position: relative;
   right: 50px;
+}
+.back {
+  width: 60px;
+  fill: #f7bc08;
+}
+.back:hover {
+  fill: #000000;
+}
+.toggleInfos {
+  background-color: #f7bc08;
+  border-style: none;
 }
