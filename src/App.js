@@ -13,6 +13,8 @@ import AssociationPage from "./pages /Association/AssociationPage";
 import LogIn from "./pages /logPages/Login";
 import AddMaterialPage from "./pages /materiel/CreateMaterialPage";
 import Profil from "./pages /logPages/Profil";
+import AddRentPage from "./pages /rent/CreateRentPage";
+import Rents from "./components/rent/DisplayRentsForOneMatreial";
 
 function App() {
   return (
@@ -30,7 +32,8 @@ function App() {
           <Route path="/association/:id" element={<AssociationPage />}></Route>
           {/* POUR AFFICHER SON PROFIL  */}
           <Route path="/user/:id" element={<Profil />}></Route>
-
+          <Route path="/material/:materialid/rents" element={<AddRentPage />}></Route>
+          <Route path="/material/:materialid/all-rents" element={<Rents />}></Route>
           {/* renvoyer a home si jamais il trouve pas la route : */}
           <Route path="*" element={<Home />}></Route>
         </Routes>

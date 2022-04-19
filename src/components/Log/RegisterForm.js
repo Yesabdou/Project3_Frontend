@@ -41,7 +41,7 @@ function RegisterForm(props) {
       .post(`${API_URL}/user/register`, requestBody)
       .then((response) => {
         console.log(response);
-        navigate(`/user/${response.data.id}`);
+        navigate(`/user/login`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
