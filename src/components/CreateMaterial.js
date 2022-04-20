@@ -77,7 +77,6 @@ function AddMaterial(props) {
           </div>
 
           <div className="cases">
-
             <label htmlFor="ref">Référence</label>
             <input
               type="text"
@@ -88,7 +87,6 @@ function AddMaterial(props) {
             />
           </div>
           <div className="cases">
-
             <label htmlFor="owner">Association Propriétaire</label>
             <input
               type="text"
@@ -99,7 +97,6 @@ function AddMaterial(props) {
             />
           </div>
           <div className="cases">
-
             <label htmlFor="category">Catégorie</label>
             <select
               type="text"
@@ -153,7 +150,7 @@ function AddMaterial(props) {
               <option value="Etat satisfaisant">Etat satisfaisant</option>
             </select>
           </div>
-          <div className="cases">
+          <div className="cases age">
             <label htmlFor="ageMin">Age Minimum</label>
             <input
               type="number"
@@ -162,8 +159,6 @@ function AddMaterial(props) {
               value={ageMin}
               onChange={handleAgeMin}
             />
-          </div>
-          <div className="cases">
             <label htmlFor="ageMax">Age Maximum</label>
             <input
               type="number"
@@ -173,6 +168,7 @@ function AddMaterial(props) {
               onChange={handleAgeMax}
             />
           </div>
+          <div className="cases"></div>
           <div className="cases">
             <input
               className="buttonCss"

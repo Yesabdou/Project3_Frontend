@@ -62,7 +62,11 @@ const AssociationPage = () => {
     axios
       .get("https://handishare.herokuapp.com/api/material")
 
-      .then((res) => setMaterial(res.data));
+      .then((res) => {
+        console.log(res.data);
+
+        setMaterial(res.data);
+      });
   }, []);
 
   return (
@@ -161,9 +165,11 @@ const AssociationPage = () => {
         {isLoggedIn && (
           <section>
             <ul className="ownedMaterial">
-              {materials.map((material, index) => (
-                <MaterialSquare key={index} material={material} />
-              ))}
+              {materials
+                .filter((material) => material?.owner?._id === id)
+                .map((material, index) => (
+                  <MaterialSquare key={index} material={material} />
+                ))}
             </ul>
           </section>
         )}
