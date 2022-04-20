@@ -65,7 +65,7 @@ function AddMaterial(props) {
 
       <div className="formLog">
         <form onSubmit={handleMaterialSubmit}>
-          <div>
+          <div className="cases">
             <label htmlFor="name">Nom du matériel</label>
             <input
               type="text"
@@ -75,7 +75,9 @@ function AddMaterial(props) {
               onChange={handleName}
             />
           </div>
-          {/* <div>
+
+          <div className="cases">
+
             <label htmlFor="ref">Référence</label>
             <input
               type="text"
@@ -84,8 +86,9 @@ function AddMaterial(props) {
               value={ref}
               onChange={handleRef}
             />
-          </div> */}
-          {/* <div>
+          </div>
+          <div className="cases">
+
             <label htmlFor="owner">Association Propriétaire</label>
             <input
               type="text"
@@ -94,8 +97,9 @@ function AddMaterial(props) {
               value={owner}
               onChange={handleOwner}
             />
-          </div> */}
-          <div>
+          </div>
+          <div className="cases">
+
             <label htmlFor="category">Catégorie</label>
             <select
               type="text"
@@ -110,7 +114,7 @@ function AddMaterial(props) {
               <option value="Matériel ludique">Matériel ludique</option>
             </select>
           </div>
-          <div>
+          <div className="cases">
             <label htmlFor="description">Descritpion</label>
             <input
               type="text"
@@ -120,12 +124,12 @@ function AddMaterial(props) {
               onChange={handleDescription}
             />
           </div>
-          <div>
+          <div className="pictureFile">
             <label className="" htmlFor="picture">
               Photo
             </label>
             <input
-              className="buttonCss"
+              className=""
               type="file"
               name="picture"
               id="picture"
@@ -133,7 +137,7 @@ function AddMaterial(props) {
               onChange={handlePicture}
             />
           </div>
-          <div>
+          <div className="cases">
             <label htmlFor="condition">Etat</label>
             <select
               type="text"
@@ -149,7 +153,7 @@ function AddMaterial(props) {
               <option value="Etat satisfaisant">Etat satisfaisant</option>
             </select>
           </div>
-          <div>
+          <div className="cases">
             <label htmlFor="ageMin">Age Minimum</label>
             <input
               type="number"
@@ -159,7 +163,7 @@ function AddMaterial(props) {
               onChange={handleAgeMin}
             />
           </div>
-          <div>
+          <div className="cases">
             <label htmlFor="ageMax">Age Maximum</label>
             <input
               type="number"
@@ -169,7 +173,7 @@ function AddMaterial(props) {
               onChange={handleAgeMax}
             />
           </div>
-          <div>
+          <div className="cases">
             <input
               className="buttonCss"
               type="submit"
