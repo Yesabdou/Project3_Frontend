@@ -76,7 +76,7 @@ function AddMaterial(props) {
             />
           </div>
 
-          <div className="cases">
+          {/* <div className="cases">
 
             <label htmlFor="ref">Référence</label>
             <input
@@ -86,8 +86,8 @@ function AddMaterial(props) {
               value={ref}
               onChange={handleRef}
             />
-          </div>
-          <div className="cases">
+          </div> */}
+          {/* <div className="cases">
 
             <label htmlFor="owner">Association Propriétaire</label>
             <input
@@ -97,9 +97,8 @@ function AddMaterial(props) {
               value={owner}
               onChange={handleOwner}
             />
-          </div>
+          </div> */}
           <div className="cases">
-
             <label htmlFor="category">Catégorie</label>
             <select
               type="text"

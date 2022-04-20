@@ -1,9 +1,20 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "./Navigation";
 import { updateExistingMaterial } from "../api/service";
+import axios from "axios";
 
 function UpdateMaterial(props) {
+  const { id } = useParams();
+  const [material, setMaterial] = useState({});
+
+  useEffect(() => {
+    //dès que le composant est monté jouer axios
+    axios
+      .get(`https://handishare.herokuapp.com/api/material/${id}`)
+      .then((res) => setMaterial(res.data));
+  }, []);
+
   const [name, setName] = useState("");
   const [ref, setRef] = useState("");
   const [owner, setOwner] = useState("");
@@ -38,8 +49,8 @@ function UpdateMaterial(props) {
 
     const uploadData = new FormData();
     uploadData.append("name", name);
-    uploadData.append("ref", ref);
-    uploadData.append("owner", owner);
+    // uploadData.append("ref", ref);
+    // uploadData.append("owner", owner);
     uploadData.append("category", category);
     uploadData.append("description", description);
     uploadData.append("condition", condition);
@@ -69,9 +80,11 @@ function UpdateMaterial(props) {
               id="name"
               value={name}
               onChange={handleName}
+              placeholder={material.name}
+              defaultValue={material.name}
             />
           </div>
-          <div>
+          {/* <div>
             <label htmlFor="ref">Référence</label>
             <input
               type="text"
@@ -90,18 +103,25 @@ function UpdateMaterial(props) {
               value={owner}
               onChange={handleOwner}
             />
-          </div>
-          <div>
+          </div> */}
+          <div className="cases">
             <label htmlFor="category">Catégorie</label>
-            <input
+            <select
               type="text"
               name="category"
               id="category"
               value={category}
               onChange={handleCategory}
-            />
+              placeholder={material.category}
+              defaultValue={material.category}
+            >
+              {" "}
+              <option value="Fauteuil roulant">Fauteuil roulant</option>
+              <option value="Chaise adaptée">Chaise adaptée</option>
+              <option value="Matériel ludique">Matériel ludique</option>
+            </select>
           </div>
-          <div>
+          <div className="cases">
             <label htmlFor="description">Descritpion</label>
             <input
               type="text"
@@ -109,49 +129,64 @@ function UpdateMaterial(props) {
               id="description"
               value={description}
               onChange={handleDescription}
+              placeholder={material.description}
+              defaultValue={material.decription}
             />
           </div>
-          <div>
+          {/* <div className="pictureFile">
             <label className="" htmlFor="picture">
               Photo
             </label>
             <input
-              className="buttonCss"
+              className=""
               type="file"
               name="picture"
               id="picture"
               value={picture}
               onChange={handlePicture}
+              placeholder={material.picture}
             />
-          </div>
-          <div>
+          </div> */}
+          <div className="cases">
             <label htmlFor="condition">Etat</label>
-            <input
+            <select
               type="text"
               name="condition"
               id="condition"
               value={condition}
               onChange={handleCondition}
-            />
+              placeholder={material.condition}
+              defaultValue={material.condition}
+            >
+              {" "}
+              <option value="Etat neuf">Etat neuf</option>
+              <option value="Très bon état">Très bon état</option>
+              <option value="Bon état">Bon état</option>
+              <option value="Etat satisfaisant">Etat satisfaisant</option>
+            </select>
           </div>
-          <div>
+          <div className="cases">
             <label htmlFor="ageMin">Age Minimum</label>
             <input
-              type="text"
+              type="number"
               name="ageMin"
               id="ageMin"
               value={ageMin}
               onChange={handleAgeMin}
+              placeholder={material.ageMin}
+              defaultValue={material.ageMin}
             />
           </div>
-          <div>
+          <div className="cases">
             <label htmlFor="ageMax">Age Maximum</label>
             <input
-              type="text"
+              type="number"
               name="ageMax"
               id="ageMax"
               value={ageMax}
               onChange={handleAgeMax}
+              placeholder={material.ageMax}
+              defaultValue={material.ageMax}
             />
           </div>
           <div>
