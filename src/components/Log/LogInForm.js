@@ -41,8 +41,8 @@ function LoginForm(props) {
         navigate("/");
       })
       .catch((error) => {
-        // emailError.innerHTML = res.data.errors.email;
-        // error.response.data.error);
+        console.log(error.response.data);
+        emailError.innerHTML = error.response.data.error;
       });
   };
 

@@ -13,7 +13,7 @@ const MaterialPage = () => {
     axios
       .get(`https://handishare.herokuapp.com/api/material/${id}`)
 
-      .then((res) => setOneMaterial(res.data).populate("owner"));
+      .then((res) => setOneMaterial(res.data));
   }, []);
   return (
     <div className="pageOneMaterial">
@@ -37,6 +37,7 @@ const MaterialPage = () => {
           <h1> {OneMaterial.name}</h1>
           <h2> Référence : {OneMaterial.ref}</h2>
           <p>{OneMaterial.description}</p>
+          <p>{OneMaterial.owner?.pseudo}</p>
           <h3>
             Age minimum : {OneMaterial.ageMin} Age maximum :{OneMaterial.ageMax}
           </h3>
