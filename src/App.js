@@ -17,6 +17,7 @@ import AddRentPage from "./pages /rent/CreateRentPage";
 import Rents from "./components/rent/DisplayRentsForOneMatreial";
 import RentsByUser from "./components/rent/DisplayRentsForOneUser";
 import UserProfil from "./pages /logPages/UserProfil";
+import UpdateMaterialPage from "./pages /materiel/UpdateMaterialPage";
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
           <Route path="/list-materiels" element={<Stock />}></Route>
           <Route path="/material/:id" element={<MaterialPage />}></Route>
           <Route path="/material/new" element={<AddMaterialPage />}></Route>
+          <Route
+            path="/material/:id/update"
+            element={<UpdateMaterialPage />}
+          ></Route>
           <Route path="/association/:id" element={<AssociationPage />}></Route>
           {/* POUR AFFICHER SON PROFIL  */}
 
