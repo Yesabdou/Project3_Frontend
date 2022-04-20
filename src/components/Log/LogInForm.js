@@ -7,8 +7,7 @@ import { AuthContext } from "../../context/auth.context";
 const API_URL = "https://handishare.herokuapp.com/api";
 
 function LoginForm(props) {
-  const emailError = document.querySelector(".email .error");
-  const passwordError = document.querySelector(".password .error");
+  const logError = document.querySelector(".error");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,48 +40,46 @@ function LoginForm(props) {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error.response.data);
-        emailError.innerHTML = error.response.data.error;
+        console.log(error.response.data.error);
+        logError.innerHTML = error.response.data.error;
       });
   };
 
   return (
-    <div>
-      <div className="page formLog">
-        <form onSubmit={handleLoginSubmit}>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={email}
-              onChange={handleEmail}
-            />
-            <div className="email error"></div>
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={password}
-              onChange={handlePassword}
-            />
-            <div className="password error"></div>
-          </div>
+    <div className=" formLog">
+      <form onSubmit={handleLoginSubmit}>
+        <div className="cases">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={email}
+            onChange={handleEmail}
+          />
+        </div>
+        <div className="cases">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={password}
+            onChange={handlePassword}
+          />
+        </div>
+        <div className="cases">
+          <div className="error"></div>
 
           <button className="buttonCss" type="submit">
             Log In
           </button>
-        </form>
-        <div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <p>Don't have an account yet?</p>
+        </div>
+        <div className="cases">
+          <p>Don't have an account yet?</p>{" "}
           <Link to={"/user/register"}>Register</Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

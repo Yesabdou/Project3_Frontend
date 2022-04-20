@@ -135,19 +135,17 @@ const AssociationPage = () => {
         ) : (
           ""
         )}
-
-        <section className="plusInfos">
-          <NavLink className="" to="/user/login">
-            <div>
-              {!isLoggedIn && (
+        {!isLoggedIn && (
+          <section className="plusInfos">
+            <NavLink className="" to="/user/login">
+              <div>
                 <div className="">
                   <h2>Connectez vous pour voir le matériel partagé </h2>
                 </div>
-              )}
-            </div>{" "}
-          </NavLink>
-        </section>
-
+              </div>{" "}
+            </NavLink>
+          </section>
+        )}
         <section className="miniNavBar">
           <div className="backButton">
             <NavLink className="" to="/annuaire">

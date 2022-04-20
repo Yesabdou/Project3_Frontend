@@ -3,19 +3,20 @@
   top: 180px;
   display: flex;
   flex-direction: column;
+  /* 
   align-items: center;
   justify-items: center;
   align-content: center;
-  justify-content: center;
+  justify-content: center; */
   background-color: #f7bc08;
   margin: 0px 360px;
   padding: 40px;
   border-radius: 20px;
 }
 .formLog form {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  position: relative;
+  position: relative; */
 }
 .formLog label {
   padding: 10px 20px;
@@ -23,9 +24,8 @@
 .formLog input {
   border-radius: 9px;
   border-style: none;
-  margin: 7px;
-  padding: 8px;
-  width: 40vw;
+
+  padding: 10px 8px;
 }
 
 .formLog a {
@@ -49,4 +49,51 @@
   color: black;
   align-items: center;
   justify-items: center;
+}
+.error {
+  padding: 20px;
+  text-align: center;
+  color: rgb(203, 63, 63);
+  font-size: 1.1rem;
+  font-weight: 800;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  text-decoration: none;
+  display: inline-block;
+  background-size: 120% 100%;
+
+  animation: 1s shake infinite;
+}
+@keyframes shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+.cases {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cases p {
+  text-align: center;
+  padding-top: 30px;
+}
+.cases a {
+  text-align: center;
 }
