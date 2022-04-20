@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
 import { createNewMaterial } from "../api/service";
+import { AuthContext } from "../../src/context/auth.context";
 
 function AddMaterial(props) {
+  const { user } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [ref, setRef] = useState("");
   const [owner, setOwner] = useState("");
@@ -38,14 +40,15 @@ function AddMaterial(props) {
 
     const uploadData = new FormData();
     uploadData.append("name", name);
-    uploadData.append("ref", ref);
-    uploadData.append("owner", owner);
+    // uploadData.append("ref", ref);
+    uploadData.append("owner", user.id);
     uploadData.append("category", category);
     uploadData.append("description", description);
     uploadData.append("condition", condition);
     uploadData.append("ageMin", ageMin);
     uploadData.append("ageMax", ageMax);
     uploadData.append("image", image);
+
     try {
       await createNewMaterial(uploadData);
       console.log("success");
@@ -72,7 +75,9 @@ function AddMaterial(props) {
               onChange={handleName}
             />
           </div>
+
           <div className="cases">
+
             <label htmlFor="ref">Référence</label>
             <input
               type="text"
@@ -83,6 +88,7 @@ function AddMaterial(props) {
             />
           </div>
           <div className="cases">
+
             <label htmlFor="owner">Association Propriétaire</label>
             <input
               type="text"
@@ -93,14 +99,20 @@ function AddMaterial(props) {
             />
           </div>
           <div className="cases">
+
             <label htmlFor="category">Catégorie</label>
-            <input
+            <select
               type="text"
               name="category"
               id="category"
               value={category}
               onChange={handleCategory}
-            />
+            >
+              {" "}
+              <option value="Fauteuil roulant">Fauteuil roulant</option>
+              <option value="Chaise adaptée">Chaise adaptée</option>
+              <option value="Matériel ludique">Matériel ludique</option>
+            </select>
           </div>
           <div className="cases">
             <label htmlFor="description">Descritpion</label>
@@ -127,18 +139,24 @@ function AddMaterial(props) {
           </div>
           <div className="cases">
             <label htmlFor="condition">Etat</label>
-            <input
+            <select
               type="text"
               name="condition"
               id="condition"
               value={condition}
               onChange={handleCondition}
-            />
+            >
+              {" "}
+              <option value="Etat neuf">Etat neuf</option>
+              <option value="Très bon état">Très bon état</option>
+              <option value="Bon état">Bon état</option>
+              <option value="Etat satisfaisant">Etat satisfaisant</option>
+            </select>
           </div>
           <div className="cases">
             <label htmlFor="ageMin">Age Minimum</label>
             <input
-              type="text"
+              type="number"
               name="ageMin"
               id="ageMin"
               value={ageMin}
@@ -148,7 +166,7 @@ function AddMaterial(props) {
           <div className="cases">
             <label htmlFor="ageMax">Age Maximum</label>
             <input
-              type="text"
+              type="number"
               name="ageMax"
               id="ageMax"
               value={ageMax}
