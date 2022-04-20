@@ -45,3 +45,17 @@
 
   top: 5px;
 }
+
+.SearchKeyword {
+  padding: 10px 25px;
+  border-style: none;
+  -webkit-appearance: none;
+}
+.SearchBar::placeholder {
+  outline: none;
+  background: #222222;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-radius: 0;
+  border-style: 0;
+}

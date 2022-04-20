@@ -1,14 +1,31 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useEffect } from "react";
-import MaterialSquare from "./MaterialSquare";
+import { Link } from "react-router-dom";
 
 const Materials = (props) => {
   return (
     <ul className="listMaterial">
-      {props.materials.map((material, index) => (
-        <MaterialSquare key={index} material={material} />
-      ))}
+      {props.materials
+        .filter((material) => material.name.includes(props.keyword)) //chercher la key qui se trouver dans la searchbar
+        .map((material, index) => (
+          // <MaterialSquare key={index} material={material} />
+          <>
+            <li className="materialSquare">
+              <img src={material.picture} alt="" />
+              <h2>ref : {material.ref}</h2>
+              <h1>{material.name}</h1>
+              <div className="">
+                <p className="description">{material.description}</p>
+              </div>
+              <div className="p">
+                <div>
+                  <Link to={{ pathname: `/material/${material._id}` }}>
+                    <p className="preview"> Vérifier les disponibilités </p>
+                  </Link>
+                </div>
+              </div>
+            </li>
+          </>
+        ))}
+      <div>{console.log(props.keyword)}</div>
     </ul>
   );
 };

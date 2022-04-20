@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Filtres from "./buttons/Filtre";
 import filter from "../assets/images/Filter.png";
+import Onefilter from "./Onefilter";
 
 const SearchBar = (props) => {
   const [show, setShow] = useState(true);
@@ -25,6 +26,10 @@ const SearchBar = (props) => {
     "Bon état",
     "Etat satisfaisant",
   ];
+  const [catg, setCatg] = useState();
+  const [filterCategorie, setFilterCategorie] = useState(catg);
+
+  // comment lift ce state????????????????????????
 
   const categories = ["Fauteuil roulant", "Chaise adaptée", "Matériel ludique"];
   return (
@@ -51,8 +56,27 @@ const SearchBar = (props) => {
           Voir la liste
         </li>
       </ul>
-      <Filtres array={conditions} criteria={"condition"} />
-      <Filtres array={categories} criteria={"category"} />
+
+      <input
+        className="SearchKeyword"
+        type="text"
+        placeholder="Rechercher un matériel..."
+        onChange={(e) => props.setKeyword(e.target.value)}
+      />
+
+      <Onefilter categories={categories} catg={catg} setCatg={setCatg} />
+      {/* <Filtres
+        array={conditions}
+        criteria={"condition"}
+        materialsFiltered={props.materialsFiltered}
+        setMaterialFiltered={props.setMaterialFiltered}
+      />
+      <Filtres
+        array={categories}
+        criteria={"category"}
+        materialsFiltered={props.materialsFiltered}
+        setMaterialFiltered={props.setMaterialFiltered}
+      /> */}
     </div>
   );
 };

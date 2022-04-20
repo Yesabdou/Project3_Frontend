@@ -7,7 +7,7 @@ const Filtre = (props) => {
     <div>
       <label for="filter-select"> </label>
       <select className="filtersButton" name="categorie" id="categorie">
-        <option value=""> Filtrer par :</option>
+        <option value={options}> Filtrer par : </option>
         {props.array.map((condition) => {
           return <option value={condition}>{condition} </option>;
         })}

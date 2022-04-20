@@ -46,6 +46,7 @@
 
 .infoContainer {
   width: 70%;
+  padding: 20px;
 }
 .plusInfos h3 {
   padding-top: 10px;
@@ -147,4 +148,18 @@
 .toggleInfos {
   background-color: #f7bc08;
   border-style: none;
+}
+
+.connect {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.plusInfos h2 {
+  color: #f7bc08;
+  text-decoration: underline;
+}
+.plusInfos h2:hover {
+  color: #000000;
 }

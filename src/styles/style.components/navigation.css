@@ -81,6 +81,11 @@ a:hover {
   border-style: none;
   font-size: 20px;
   color: white;
+  fill: #f7bc08;
+}
+
+.authButton .user {
+  width: 81%;
 }
 .authButtons {
   width: 90px;
@@ -93,6 +98,6 @@ a:hover {
   right: 150px;
 }
 .authButton:hover {
-  fill: #f7bc08;
+  fill: black;
   cursor: pointer;
 }

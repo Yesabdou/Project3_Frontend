@@ -6,7 +6,7 @@ const MaterialSquare = ({ material }) => {
     <>
       <li className="materialSquare">
         <img src={material.picture} alt="" />
-        <h2>ref : {material.ref}</h2>
+        <h2>Référence : {material.ref}</h2>
         <h1>{material.name}</h1>
         <div className="">
           <p className="description">{material.description}</p>

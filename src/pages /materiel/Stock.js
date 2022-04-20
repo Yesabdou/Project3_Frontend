@@ -20,14 +20,24 @@ const Stock = () => {
       .then((res) => setMaterial(res.data));
   }, []);
 
+  const [keyword, setKeyword] = useState("");
+  console.log(keyword);
+
   return (
     <div>
       <Navigation />
+
       <div className="page">
         <section className="displayResults">
-          <SearchBar />
+          <SearchBar
+            setKeyword={setKeyword}
+            keyword={keyword}
+            materialsFiltered={materialsFiltered}
+            setMaterialFiltered={setMaterialFiltered}
+          />
+          <div> {console.log(keyword)}</div>
           <div className="resultsContainer" data-aos="fade-up">
-            <Materials materials={materials} />
+            <Materials materials={materials} keyword={keyword} />
           </div>
         </section>
       </div>

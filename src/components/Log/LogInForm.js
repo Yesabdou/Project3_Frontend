@@ -7,7 +7,9 @@ import { AuthContext } from "../../context/auth.context";
 const API_URL = "https://handishare.herokuapp.com/api";
 
 function LoginForm(props) {
-  const [pseudo, setPseudo] = useState("");
+  const emailError = document.querySelector(".email .error");
+  const passwordError = document.querySelector(".password .error");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -15,25 +17,31 @@ function LoginForm(props) {
   const navigate = useNavigate();
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
-  const handlePseudo = (e) => setPseudo(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { pseudo, email, password };
+    const requestBody = { email, password };
 
     axios
       .post(`${API_URL}/user/login`, requestBody)
-      .then((response) => {
-        console.log("JWT token", response.data.authToken);
-        storeToken(response.data.authToken);
+      .then((res) => {
+        console.log(res.data);
+
+        // if (res.data.error) {
+        //   emailError.innerHTML = res.data.errors.email;
+        //   passwordError.innerHTML = res.data.errors.password;  // pouruqoi ca ne marche paaaaas?
+        // } else {
+        // const errorDescription = error.response.data.message;
+        // setErrorMessage(errorDescription);
+        console.log("JWT token", res.data.authToken);
+        storeToken(res.data.authToken);
         authenticateUser();
         navigate("/");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
+        console.log(error);
       });
   };
 
@@ -50,6 +58,7 @@ function LoginForm(props) {
               value={email}
               onChange={handleEmail}
             />
+            <div className="email error"></div>
           </div>
           <div>
             <label htmlFor="password">Password</label>
@@ -60,6 +69,7 @@ function LoginForm(props) {
               value={password}
               onChange={handlePassword}
             />
+            <div className="password error"></div>
           </div>
 
           <button className="buttonCss" type="submit">

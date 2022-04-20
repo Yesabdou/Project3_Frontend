@@ -3,7 +3,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import Map from "react-map-gl";
 import { Marker } from "react-map-gl";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
 
 const Carte = () => {
   const [associations, setAssociation] = useState([]);
