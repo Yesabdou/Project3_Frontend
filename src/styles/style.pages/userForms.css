@@ -22,7 +22,7 @@
   padding: 10px 20px;
 }
 .formLog input {
-  border-radius: 9px;
+  border-radius: 20px;
   border-style: none;
 
   padding: 10px 8px;
@@ -90,6 +90,21 @@
   display: flex;
   flex-direction: column;
 }
+.cases.age {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.cases select {
+  padding: 10px;
+  border-radius: 20px;
+  border-style: none;
+}
+.cases option {
+  text-align: center;
+}
+
 .cases p {
   text-align: center;
   padding-top: 30px;
@@ -98,6 +113,18 @@
   text-align: center;
 }
 
+.cases label {
+  font-weight: 600;
+}
 .pictureFile {
-  background-color: black;
+}
+.pictureFile input {
+  /* -webkit-animation-fill-mode: none; */
+  border-style: solid;
+  border-color: black;
+  margin-top: 20px;
+}
+
+#category option {
+  text-align: center;
 }
