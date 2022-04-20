@@ -1,18 +1,16 @@
 import axios from "axios";
- 
+
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "https://handishare.herokuapp.com/api"
+  baseURL:
+    process.env.REACT_APP_API_URL || "https://handishare.herokuapp.com/api",
 });
 
-const errorHandler = (err) => {
-    throw err;
-  };
- 
-const uploadImage = (file) => {
-  return api.post("/material/new", file)
-    .then(res => res.data)
-    .catch(errorHandler);
+const createNewMaterial = (file) => {
+  return api.post("/material/new", file).then((res) => res.data);
 };
 
- 
-export default uploadImage;
+const updateExistingMaterial = (file) => {
+  return api.put("/material/:id", file).then((res) => res.data);
+};
+
+export { createNewMaterial, updateExistingMaterial };
