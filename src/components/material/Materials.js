@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Materials = (props) => {
   return (
     <ul className="listMaterial">
-      {props.materials
-        .filter((material) => material.name.includes(props.keyword)) //chercher la key qui se trouver dans la searchbar
+      {props.materialsToDisplay
+        //chercher la key qui se trouver dans la searchbar
         .map((material, index) => (
           // <MaterialSquare key={index} material={material} />
           <>

@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import Filtres from "./buttons/Filtre";
 import filter from "../assets/images/Filter.png";
 import Onefilter from "./Onefilter";
+import { useLocation } from "react-router-dom";
 
 const SearchBar = (props) => {
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   const [show, setShow] = useState(true);
   const controlSearchBAr = () => {
     if (window.scrollY > 800) {
@@ -26,8 +30,7 @@ const SearchBar = (props) => {
     "Bon état",
     "Etat satisfaisant",
   ];
-  const [catg, setCatg] = useState();
-  const [filterCategorie, setFilterCategorie] = useState(catg);
+  // const [filterCategorie, setFilterCategorie] = useState(catg);
 
   // comment lift ce state????????????????????????
 
@@ -40,31 +43,42 @@ const SearchBar = (props) => {
         </span>
         &ensp;Filtrer
       </h2>
-      <ul className="toggleButtons">
-        <li
-          onClick={props.toggle}
-          id="carte"
-          className={`button1On  ${props.button || "button1Off"}`}
-        >
-          Voir la carte
-        </li>
-        <li
-          onClick={props.toggle}
-          id="liste"
-          className={`button1On  ${props.button && "button1Off"}`}
-        >
-          Voir la liste
-        </li>
-      </ul>
 
-      <input
-        className="SearchKeyword"
-        type="text"
-        placeholder="Rechercher un matériel..."
-        onChange={(e) => props.setKeyword(e.target.value)}
-      />
+      {pathname === "/Annuaire" && (
+        <ul className="toggleButtons">
+          <li
+            onClick={props.toggle}
+            id="carte"
+            className={`button1On  ${props.button || "button1Off"}`}
+          >
+            Voir la carte
+          </li>
+          <li
+            onClick={props.toggle}
+            id="liste"
+            className={`button1On  ${props.button && "button1Off"}`}
+          >
+            Voir la liste
+          </li>
+        </ul>
+      )}
+      {pathname === "/list-materiels" && (
+        <input
+          className="SearchKeyword"
+          type="text"
+          placeholder="Rechercher un matériel..."
+          onChange={(e) => props.setKeyword(e.target.value)}
+        />
+      )}
 
-      <Onefilter categories={categories} catg={catg} setCatg={setCatg} />
+      {pathname === "/list-materiels" && (
+        <Onefilter
+          categories={categories}
+          catg={props.catg}
+          setCatg={props.setCatg}
+        />
+      )}
+
       {/* <Filtres
         array={conditions}
         criteria={"condition"}

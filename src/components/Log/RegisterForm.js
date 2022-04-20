@@ -52,7 +52,7 @@ function RegisterForm(props) {
   return (
     <div className="formLog">
       <form onSubmit={handleSignupSubmit}>
-        <div className="flexForm">
+        <div className="cases">
           <label htmlFor="pseudo">Nom de l'association</label>
           <input
             type="text"
@@ -62,7 +62,7 @@ function RegisterForm(props) {
             onChange={handlePseudo}
           />
         </div>
-        <div className="flexForm">
+        <div className="cases">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -72,7 +72,7 @@ function RegisterForm(props) {
             onChange={handleEmail}
           />
         </div>
-        <div className="flexForm">
+        <div className="cases">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -82,7 +82,7 @@ function RegisterForm(props) {
             onChange={handlePassword}
           />
         </div>
-        <div className="flexForm">
+        <div className="cases">
           <label htmlFor="finess">Finess</label>
           <input
             type="number"
@@ -92,7 +92,7 @@ function RegisterForm(props) {
             onChange={handleFiness}
           />
         </div>
-        <div className="flexForm">
+        <div className="cases">
           <label htmlFor="phone">Telephone</label>
           <input
             type="number"
@@ -102,7 +102,7 @@ function RegisterForm(props) {
             onChange={handlePhone}
           />
         </div>
-        <div className="flexForm">
+        <div className="cases">
           <label htmlFor="adresse">Adresse</label>
           <input
             type="string"
@@ -112,7 +112,7 @@ function RegisterForm(props) {
             onChange={handleAdresse}
           />
         </div>
-        <div className="flexForm">
+        <div className="cases">
           <label htmlFor="bio">Présentation </label>
           <input
             type="text"
@@ -122,17 +122,18 @@ function RegisterForm(props) {
             onChange={handleBio}
           />
         </div>
-
-        <button
-          className="buttonCss"
-          onClick={(e) => e.preventDefault}
-          type="submit"
-        >
-          Sign Up
-        </button>
+        <div className="cases">
+          <button
+            className="buttonCss"
+            onClick={(e) => e.preventDefault}
+            type="submit"
+          >
+            Sign Up
+          </button>{" "}
+        </div>
       </form>
 
-      <div>
+      <div className="cases">
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <p>Already have account?</p>
         <Link to={"/user/login"}> Login</Link>
