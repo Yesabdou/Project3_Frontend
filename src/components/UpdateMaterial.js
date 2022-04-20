@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
-import { createNewMaterial } from "../api/service";
+import { updateExistingMaterial } from "../api/service";
 
-function AddMaterial(props) {
+function UpdateMaterial(props) {
   const [name, setName] = useState("");
   const [ref, setRef] = useState("");
   const [owner, setOwner] = useState("");
@@ -47,9 +47,8 @@ function AddMaterial(props) {
     uploadData.append("ageMax", ageMax);
     uploadData.append("image", image);
     try {
-      await createNewMaterial(uploadData);
+      await updateExistingMaterial(uploadData);
       console.log("success");
-      // Clear form or navigate etc
       navigate("/list-materiels");
     } catch (err) {
       console.log("Error while uploading the file: ", err);
@@ -171,4 +170,4 @@ function AddMaterial(props) {
   );
 }
 
-export default AddMaterial;
+export default UpdateMaterial;
