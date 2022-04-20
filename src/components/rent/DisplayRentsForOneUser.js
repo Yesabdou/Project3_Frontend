@@ -4,14 +4,15 @@ import { useEffect} from "react";
 import { useParams } from "react-router-dom";
 import RentSquare from "./RentSquare";
 
-const Rents = () => {
+
+const RentsByUser = () => {
     
+  const {userid} = useParams();
   const [rents, setRents] = useState([]);
-  const {materialid} = useParams();
 
   useEffect(() => {
         axios
-        .get(`https://handishare.herokuapp.com/api/material/${materialid}/all-rents`)
+        .get(`https://handishare.herokuapp.com/api/user/${userid}/all-rents`)
         
         .then((res) => setRents(res.data))
         .catch((err)=> console.log(err))
@@ -26,4 +27,4 @@ const Rents = () => {
   );
 };
 
-export default Rents;
+export default RentsByUser;

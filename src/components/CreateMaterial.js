@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import service from "../api/service";
+import uploadImage from "../api/service";
 import Navigation from "./Navigation";
 
 const API_URL = "https://handishare.herokuapp.com/api";
@@ -26,29 +26,24 @@ function AddMaterial(props) {
   const handleOwner = (e) => setOwner(e.target.value);
   const handleCategory = (e) => setCategory(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
-  // const handlePicture = (e) => setPicture(e.target.value);
+  const handlePicture = (e) => setPicture(e.target.value);
   const handleCondition = (e) => setCondition(e.target.value);
   const handleAgeMin = (e) => setAgeMin(e.target.value);
   const handleAgeMax = (e) => setAgeMax(e.target.value);
 
-  const handleFileUpload = (e) => {
-    console.log(e.target.files[0]);
+//   const handleFileUpload = (e) => {
+//     console.log(e.target.files[0]);
 
-    const uploadData = new FormData();
+//     const uploadData = new FormData();
 
-    // imageUrl => this name has to be the same as in the model since we pass
-    // req.body to .create() method when creating a new movie in '/api/movies' POST route
-    uploadData.append("picture", e.target.files[0]);
-
-    service
-      .uploadImage(uploadData)
-      .then((response) => {
-        // console.log("response is: ", response);
-        // response carries "fileUrl" which we can use to update the state
-        setPicture(response.fileUrl);
-      })
-      .catch((err) => console.log("Error while uploading the file: ", err));
-  };
+//     uploadData.append("image", e.target.files[0]);
+//     console.log("upload here", uploadImage)
+//     uploadImage(uploadData)
+//       .then((response) => {
+//         setPicture(response.fileUrl);
+//       })
+//       .catch((err) => console.log("Error while uploading the file: ", err));
+//   };
 
   const handleMaterialSubmit = async (e) => {
     e.preventDefault();
@@ -58,13 +53,16 @@ function AddMaterial(props) {
       owner,
       category,
       description,
-      picture,
+
       condition,
       ageMin,
       ageMax,
     };
+    // const uploadData = new FormData(requestBody);
+    // uploadData.append("image", picture);
+
     try {
-      await axios.post(`${API_URL}/material/new`, requestBody);
+      await uploadImage(requestBody);
       navigate("/material");
     } catch (error) {
       console.error(error);
@@ -128,7 +126,7 @@ function AddMaterial(props) {
               onChange={handleDescription}
             />
           </div>
-          <div>
+          {/* <div>
             <label className="" htmlFor="picture">
               Photo
             </label>
@@ -138,9 +136,9 @@ function AddMaterial(props) {
               name="picture"
               id="picture"
               value={picture}
-              onChange={handleFileUpload}
+              onChange={handlePicture}
             />
-          </div>
+          </div> */}
           <div>
             <label htmlFor="condition">Etat</label>
             <input

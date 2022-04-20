@@ -41,13 +41,14 @@ function AddRent(props) {
         rentedTo,
         adresse,
         materialId: materialid,
-        ownerId: user }
+        ownerId: user.id }
     
     axios
       .post(`${API_URL}/material/${materialid}/rents`, requestBody)
       .then((response) => {
         console.log(response);
-        navigate(`/user/:userid/all-rents`);
+        console.log({user})
+        navigate(`/`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
