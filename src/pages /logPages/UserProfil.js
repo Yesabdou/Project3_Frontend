@@ -28,11 +28,14 @@ const UserProfil = () => {
   const [association, setOneAssociation] = useState({}); // dans le router j'ai mis un /:id ue je recupere ici avec le useParams
   // call axios with the current logedin user id
   useEffect(() => {
-    axios
-      .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
-      .then((res) => setOneAssociation(res.data));
-  }, []);
-
+    if (user)
+      axios
+        .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
+        .then((res) => setOneAssociation(res.data));
+  }, [user]);
+  // useEffect(() => {
+  //   console.log("in useeffect looking at user i get", user);
+  // }, [user]);
   // show hide popup delte
   const ToggleModale = () => {
     setShowModal(!showModal);
@@ -175,12 +178,14 @@ const UserProfil = () => {
           </section>
         )}
         {isLoggedIn && (
-          <section className="">
-            <h1>materiel </h1>
+          <section className="ownedMaterial ">
+            <h1>Inventaire du materiel : </h1>
             <ul className="ownedMaterial">
-              {materials.map((material, index) => (
-                <MaterialSquare key={index} material={material} />
-              ))}
+              {materials
+                .filter((material) => material?.owner?._id === user.id)
+                .map((material, index) => (
+                  <MaterialSquare key={index} material={material} />
+                ))}
             </ul>
           </section>
         )}

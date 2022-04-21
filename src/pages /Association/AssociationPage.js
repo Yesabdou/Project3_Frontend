@@ -5,7 +5,6 @@ import MaterialSquare from "../../components/material/MaterialSquare";
 import Navigation from "../../components/Navigation";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import Carte from "../../components/Association/Carte";
 import Map, { Marker } from "react-map-gl";
 
 const AssociationPage = () => {
@@ -44,15 +43,6 @@ const AssociationPage = () => {
       .get(`https://handishare.herokuapp.com/api/user/${id}`)
       .then((res) => setOneAssociation(res.data));
   }, []);
-
-  const deleteUser = () => {
-    axios
-      .delete(`https://handishare.herokuapp.com/api/user/${id}/delete`)
-      .then((res) => console.log(res));
-    navigate("/");
-
-    removeToken();
-  };
 
   // const [showPopup, setShowPopup] = React.useState(true);
   const [materials, setMaterial] = useState([]);
