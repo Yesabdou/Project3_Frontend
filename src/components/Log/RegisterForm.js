@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { createUser } from "../../api/service";
 
 const API_URL = "https://handishare.herokuapp.com/api";
 
@@ -12,6 +13,8 @@ function RegisterForm(props) {
   const [finess, setFiness] = useState("");
   const [phone, setPhone] = useState("");
   const [bio, setBio] = useState("");
+  const [picture, setPicture] = useState("");
+  const [image, setImage] = useState(null);
   const [adresse, setAdresse] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -23,30 +26,32 @@ function RegisterForm(props) {
   const handleFiness = (e) => setFiness(e.target.value);
   const handlePhone = (e) => setPhone(e.target.value);
   const handleBio = (e) => setBio(e.target.value);
+  const handlePicture = (e) => {
+    setImage(e.target.files[0]);
+    setPicture(e.target.value);
+  };
   const handleAdresse = (e) => setAdresse(e.target.value);
 
-  const handleSignupSubmit = (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
-    const requestBody = {
-      pseudo,
-      email,
-      password,
-      adresse,
-      finess,
-      phone,
-      bio,
-    };
 
-    axios
-      .post(`${API_URL}/user/register`, requestBody)
-      .then((response) => {
-        console.log(response);
-        navigate(`/user/login`);
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+    const uploadData = new FormData();
+    uploadData.append("pseudo", pseudo);
+    uploadData.append("email", email);
+    uploadData.append("password", password);
+    uploadData.append("finess", finess);
+    uploadData.append("phone", phone);
+    uploadData.append("bio", bio);
+    uploadData.append("adresse", adresse);
+    uploadData.append("image", image);
+
+    try {
+      await createUser(uploadData);
+      console.log("success");
+      navigate("/user/login");
+    } catch (err) {
+      console.log("Error while uploading the file: ", err);
+    }
   };
 
   return (
@@ -110,6 +115,19 @@ function RegisterForm(props) {
             id="adresse"
             value={adresse}
             onChange={handleAdresse}
+          />
+        </div>
+        <div className="pictureFile">
+          <label className="" htmlFor="picture">
+            Photo
+          </label>
+          <input
+            className=""
+            type="file"
+            name="picture"
+            id="picture"
+            value={picture}
+            onChange={handlePicture}
           />
         </div>
         <div className="cases">

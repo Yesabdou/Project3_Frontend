@@ -32,7 +32,7 @@ function NewRegisterForm(props) {
   };
   const handleAdresse = (e) => setAdresse(e.target.value);
 
-  const handleSignupSubmit = (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
 
     const uploadData = new FormData();
@@ -46,7 +46,7 @@ function NewRegisterForm(props) {
     uploadData.append("image", image);
 
     try {
-      createUser(uploadData);
+      await createUser(uploadData);
       console.log("success");
       navigate("/user/login");
     } catch (err) {
