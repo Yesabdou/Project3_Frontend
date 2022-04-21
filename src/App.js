@@ -1,7 +1,6 @@
 import "./styles/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-// import { useState } from "react";
 import Home from "./pages /infoPages/Home";
 import Annuaire from "./pages /Association/Annuaire";
 import Handi from "./pages /infoPages/handicape";
@@ -12,7 +11,6 @@ import MaterialPage from "./pages /materiel/MaterialPage";
 import AssociationPage from "./pages /Association/AssociationPage";
 import LogIn from "./pages /logPages/Login";
 import AddMaterialPage from "./pages /materiel/CreateMaterialPage";
-import Profil from "./pages /logPages/Profil";
 import AddRentPage from "./pages /rent/CreateRentPage";
 import Rents from "./components/rent/DisplayRentsForOneMatreial";
 import RentsByUser from "./components/rent/DisplayRentsForOneUser";
@@ -37,9 +35,8 @@ function App() {
             element={<UpdateMaterialPage />}
           ></Route>
           <Route path="/association/:id" element={<AssociationPage />}></Route>
-          {/* POUR AFFICHER SON PROFIL  */}
 
-          <Route path="/user/:id" element={<UserProfil />}></Route>
+          <Route path="/user" element={<UserProfil />}></Route>
           <Route
             path="/material/:materialid/rents"
             element={<AddRentPage />}

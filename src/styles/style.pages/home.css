@@ -28,7 +28,7 @@
   font-family: "Roboto", sans-serif;
 }
 .blocText h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 .blocText p {
   padding: 40px 0px;
@@ -90,7 +90,14 @@
   border-radius: 20px;
   z-index: -100;
 }
+.optionBoxe h3 {
+  text-align: center;
+}
 
+.optionBoxe p {
+  text-align: justify;
+  padding: 20px;
+}
 .contact {
   background-image: linear-gradient(rgba(0, 0, 0, 0.194), rgba(0, 0, 0, 0.838)),
     url("/src/assets/images/Handi1.jpg");
