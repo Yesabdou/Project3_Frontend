@@ -50,7 +50,7 @@ const Stock = () => {
             materialsFiltered={materialsFiltered}
             setMaterialFiltered={setMaterialFiltered}
           />
-          <div> {console.log(setKeyword)}</div>
+          {/* <div> {console.log(setKeyword)}</div> */}
           <div className="resultsContainer" data-aos="fade-up">
             <Materials materialsToDisplay={materialsFiltered} />
           </div>

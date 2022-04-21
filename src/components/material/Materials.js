@@ -25,7 +25,6 @@ const Materials = (props) => {
             </li>
           </>
         ))}
-      <div>{console.log(props.keyword)}</div>
     </ul>
   );
 };
