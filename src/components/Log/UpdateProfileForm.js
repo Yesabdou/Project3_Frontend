@@ -1,57 +1,79 @@
 import React from "react";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { createUser } from "../../api/service";
-
-const API_URL = "https://handishare.herokuapp.com/api";
+import { AuthContext } from "../../context/auth.context";
 
 function NewRegisterForm(props) {
+  const { user } = useContext(AuthContext);
+  const { id } = useParams();
+  const [profile, setProfile] = useState({});
   const [pseudo, setPseudo] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [finess, setFiness] = useState("");
   const [phone, setPhone] = useState("");
   const [bio, setBio] = useState("");
-  const [picture, setPicture] = useState("");
-  const [image, setImage] = useState(null);
   const [adresse, setAdresse] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  useEffect(() => {
+    //dès que le composant est monté jouer axios
+    axios
+      .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
+      .then((res) => setProfile(res.data));
+  }, [user]);
+
+  useEffect(() => {
+    setPseudo(profile.pseudo);
+  }, [profile]);
+
+  useEffect(() => {
+    setFiness(profile.finess);
+  }, [profile]);
+
+  useEffect(() => {
+    setPhone(profile.phone);
+  }, [profile]);
+
+  useEffect(() => {
+    setBio(profile.bio);
+  }, [profile]);
+
+  useEffect(() => {
+    setAdresse(profile.adresse);
+  }, [profile]);
 
   const navigate = useNavigate();
 
   const handlePseudo = (e) => setPseudo(e.target.value);
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
   const handleFiness = (e) => setFiness(e.target.value);
   const handlePhone = (e) => setPhone(e.target.value);
   const handleBio = (e) => setBio(e.target.value);
-  const handlePicture = (e) => {
-    setImage(e.target.files[0]);
-    setPicture(e.target.value);
-  };
   const handleAdresse = (e) => setAdresse(e.target.value);
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
 
-    const uploadData = new FormData();
-    uploadData.append("pseudo", pseudo);
-    uploadData.append("email", email);
-    uploadData.append("password", password);
-    uploadData.append("finess", finess);
-    uploadData.append("phone", phone);
-    uploadData.append("bio", bio);
-    uploadData.append("adresse", adresse);
-    uploadData.append("image", image);
+    const requestBody = {
+      pseudo,
+      finess,
+      phone,
+      bio,
+      adresse,
+    };
 
-    try {
-      await createUser(uploadData);
-      console.log("success");
-      navigate("/user/login");
-    } catch (err) {
-      console.log("Error while uploading the file: ", err);
-    }
+    axios
+      .put(
+        `https://handishare.herokuapp.com/api/user/${user.id}/update`,
+        requestBody
+      )
+      .then((response) => {
+        console.log(response);
+        navigate(`/user`);
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
 
   return (
@@ -65,26 +87,8 @@ function NewRegisterForm(props) {
             id="pseudo"
             value={pseudo}
             onChange={handlePseudo}
-          />
-        </div>
-        <div className="cases">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            onChange={handleEmail}
-          />
-        </div>
-        <div className="cases">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={handlePassword}
+            placeholder={profile.pseudo}
+            defaultValue={profile.pseudo}
           />
         </div>
         <div className="cases">
@@ -95,6 +99,8 @@ function NewRegisterForm(props) {
             id="finess"
             value={finess}
             onChange={handleFiness}
+            placeholder={profile.finess}
+            defaultValue={profile.finess}
           />
         </div>
         <div className="cases">
@@ -105,6 +111,8 @@ function NewRegisterForm(props) {
             id="phone"
             value={phone}
             onChange={handlePhone}
+            placeholder={profile.phone}
+            defaultValue={profile.phone}
           />
         </div>
         <div className="cases">
@@ -115,19 +123,8 @@ function NewRegisterForm(props) {
             id="adresse"
             value={adresse}
             onChange={handleAdresse}
-          />
-        </div>
-        <div className="pictureFile">
-          <label className="" htmlFor="picture">
-            Photo
-          </label>
-          <input
-            className=""
-            type="file"
-            name="picture"
-            id="picture"
-            value={picture}
-            onChange={handlePicture}
+            placeholder={profile.adresse}
+            defaultValue={profile.adresse}
           />
         </div>
         <div className="cases">
@@ -138,23 +135,19 @@ function NewRegisterForm(props) {
             id="bio"
             value={bio}
             onChange={handleBio}
+            placeholder={profile.bio}
+            defaultValue={profile.bio}
           />
         </div>
         <div className="cases">
-          <button
-            className="buttonCss"
-            onClick={(e) => e.preventDefault}
-            type="submit"
-          >
-            Sign Up
+          <button className="buttonCss" type="submit">
+            Modifier Profile
           </button>{" "}
         </div>
       </form>
 
       <div className="cases">
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <p>Already have account?</p>
-        <Link to={"/user/login"}> Login</Link>
       </div>
     </div>
   );

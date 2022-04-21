@@ -1,4 +1,5 @@
 import React from "react";
+import Navigation from "../../components/Navigation";
 import AddRent from "../../components/rent/CreateRent";
 
 // import { useState } from "react";
@@ -8,6 +9,7 @@ import AddRent from "../../components/rent/CreateRent";
 const AddRentPage = () => {
   return (
     <div>
+      <Navigation />
       <AddRent />
     </div>
   );

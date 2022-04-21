@@ -1,19 +1,18 @@
 import React from "react";
 import Navigation from "../../components/Navigation";
-import RegisterForm from "../../components/Log/RegisterForm";
+import NewRegisterForm from "../../components/Log/UpdateProfileForm";
 
 // import { useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 // import axios from "axios";
 
-const Register = () => {
+const UpdateProfile = () => {
   return (
     <div>
       <Navigation />
-      <RegisterForm />
-      {/* <NewRegisterForm /> */}
+      <NewRegisterForm />
     </div>
   );
 };
 
-export default Register;
+export default UpdateProfile;
