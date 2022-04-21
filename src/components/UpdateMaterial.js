@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "./Navigation";
-import { updateExistingMaterial } from "../api/service";
 import axios from "axios";
+
+const API_URL = "https://handishare.herokuapp.com/api";
 
 function UpdateMaterial(props) {
   const { id } = useParams();
@@ -13,57 +14,49 @@ function UpdateMaterial(props) {
     axios
       .get(`https://handishare.herokuapp.com/api/material/${id}`)
       .then((res) => setMaterial(res.data));
-  }, []);
+  }, [id]);
 
   const [name, setName] = useState("");
-  const [ref, setRef] = useState("");
-  const [owner, setOwner] = useState("");
-  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
-  const [image, setImage] = useState(null);
-
   const [condition, setCondition] = useState("");
-  const [ageMin, setAgeMin] = useState("");
-  const [ageMax, setAgeMax] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  useEffect(() => {
+    setDescription(material.description);
+  }, [material]);
+
+  useEffect(() => {
+    setName(material.name);
+  }, [material]);
+
+  useEffect(() => {
+    setCondition(material.condition);
+  }, [material]);
 
   const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
-  const handleRef = (e) => setRef(e.target.value);
-  const handleOwner = (e) => setOwner(e.target.value);
-  const handleCategory = (e) => setCategory(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
-  const handlePicture = (e) => {
-    setImage(e.target.files[0]);
-    setPicture(e.target.value);
-  };
   const handleCondition = (e) => setCondition(e.target.value);
-  const handleAgeMin = (e) => setAgeMin(e.target.value);
-  const handleAgeMax = (e) => setAgeMax(e.target.value);
 
   const handleMaterialSubmit = async (e) => {
     e.preventDefault();
-    console.log("FORM SUBMISSION", { image });
 
-    const uploadData = new FormData();
-    uploadData.append("name", name);
-    // uploadData.append("ref", ref);
-    // uploadData.append("owner", owner);
-    uploadData.append("category", category);
-    uploadData.append("description", description);
-    uploadData.append("condition", condition);
-    uploadData.append("ageMin", ageMin);
-    uploadData.append("ageMax", ageMax);
-    uploadData.append("image", image);
-    try {
-      await updateExistingMaterial(uploadData);
-      console.log("success");
-      navigate("/list-materiels");
-    } catch (err) {
-      console.log("Error while uploading the file: ", err);
-    }
+    const requestBody = {
+      name,
+      description,
+      condition,
+    };
+    axios
+      .put(`${API_URL}/material/${id}`, requestBody)
+      .then((response) => {
+        console.log(response);
+        navigate(`/list-materiels`);
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
 
   return (
@@ -84,45 +77,8 @@ function UpdateMaterial(props) {
               defaultValue={material.name}
             />
           </div>
-          {/* <div>
-            <label htmlFor="ref">Référence</label>
-            <input
-              type="text"
-              name="ref"
-              id="ref"
-              value={ref}
-              onChange={handleRef}
-            />
-          </div>
-          <div>
-            <label htmlFor="owner">Association Propriétaire</label>
-            <input
-              type="text"
-              name="owner"
-              id="owner"
-              value={owner}
-              onChange={handleOwner}
-            />
-          </div> */}
           <div className="cases">
-            <label htmlFor="category">Catégorie</label>
-            <select
-              type="text"
-              name="category"
-              id="category"
-              value={category}
-              onChange={handleCategory}
-              placeholder={material.category}
-              defaultValue={material.category}
-            >
-              {" "}
-              <option value="Fauteuil roulant">Fauteuil roulant</option>
-              <option value="Chaise adaptée">Chaise adaptée</option>
-              <option value="Matériel ludique">Matériel ludique</option>
-            </select>
-          </div>
-          <div className="cases">
-            <label htmlFor="description">Descritpion</label>
+            <label htmlFor="description">Description</label>
             <input
               type="text"
               name="description"
@@ -130,23 +86,9 @@ function UpdateMaterial(props) {
               value={description}
               onChange={handleDescription}
               placeholder={material.description}
-              defaultValue={material.decription}
+              defaultValue={material.description}
             />
           </div>
-          {/* <div className="pictureFile">
-            <label className="" htmlFor="picture">
-              Photo
-            </label>
-            <input
-              className=""
-              type="file"
-              name="picture"
-              id="picture"
-              value={picture}
-              onChange={handlePicture}
-              placeholder={material.picture}
-            />
-          </div> */}
           <div className="cases">
             <label htmlFor="condition">Etat</label>
             <select
@@ -165,36 +107,8 @@ function UpdateMaterial(props) {
               <option value="Etat satisfaisant">Etat satisfaisant</option>
             </select>
           </div>
-          <div className="cases">
-            <label htmlFor="ageMin">Age Minimum</label>
-            <input
-              type="number"
-              name="ageMin"
-              id="ageMin"
-              value={ageMin}
-              onChange={handleAgeMin}
-              placeholder={material.ageMin}
-              defaultValue={material.ageMin}
-            />
-          </div>
-          <div className="cases">
-            <label htmlFor="ageMax">Age Maximum</label>
-            <input
-              type="number"
-              name="ageMax"
-              id="ageMax"
-              value={ageMax}
-              onChange={handleAgeMax}
-              placeholder={material.ageMax}
-              defaultValue={material.ageMax}
-            />
-          </div>
           <div>
-            <input
-              className="buttonCss"
-              type="submit"
-              value="Ajouter le matériel"
-            />
+            <input className="buttonCss" type="submit" value="Modifier" />
           </div>
         </form>
       </div>
