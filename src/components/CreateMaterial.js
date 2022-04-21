@@ -7,8 +7,6 @@ import { AuthContext } from "../../src/context/auth.context";
 function AddMaterial(props) {
   const { user } = useContext(AuthContext);
   const [name, setName] = useState("");
-  const [ref, setRef] = useState("");
-  const [owner, setOwner] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
@@ -22,8 +20,6 @@ function AddMaterial(props) {
   const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
-  const handleRef = (e) => setRef(e.target.value);
-  const handleOwner = (e) => setOwner(e.target.value);
   const handleCategory = (e) => setCategory(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handlePicture = (e) => {
@@ -75,33 +71,6 @@ function AddMaterial(props) {
               onChange={handleName}
             />
           </div>
-
-
-          {/* <div className="cases">
-
-
-            <label htmlFor="ref">Référence</label>
-            <input
-              type="text"
-              name="ref"
-              id="ref"
-              value={ref}
-              onChange={handleRef}
-            />
-
-          </div> */}
-          {/* <div className="cases">
-
-
-            <label htmlFor="owner">Association Propriétaire</label>
-            <input
-              type="text"
-              name="owner"
-              id="owner"
-              value={owner}
-              onChange={handleOwner}
-            />
-          </div> */}
           <div className="cases">
             <label htmlFor="category">Catégorie</label>
             <select

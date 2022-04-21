@@ -13,4 +13,8 @@ const updateExistingMaterial = (file) => {
   return api.put("/material/:id", file).then((res) => res.data);
 };
 
-export { createNewMaterial, updateExistingMaterial };
+const createUser = (file) => {
+  return api.post("/user/register", file).then((res) => res.data);
+};
+
+export { createNewMaterial, updateExistingMaterial, createUser };

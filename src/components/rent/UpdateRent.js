@@ -1,47 +1,61 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Navigation from "../Navigation";
 import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../../context/auth.context";
 
-const API_URL = "https://handishare.herokuapp.com/api";
-
-function AddRent(props) {
-  const { user } = useContext(AuthContext);
+function UpdateRent(props) {
+  // const { user } = useContext(AuthContext);
   const { materialid } = useParams();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [status, setStatus] = useState("");
-  const [rentedTo, setRentedTo] = useState("");
-  const [adresse, setAdresse] = useState("");
+  const { rentid } = useParams();
+  const [rent, setRent] = useState({});
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  useEffect(() => {
+    //dès que le composant est monté jouer axios
+    axios
+      .get(
+        `https://handishare.herokuapp.com/api/material/${materialid}/rent/${rentid}`
+      )
+      .then((res) => setRent(res.data));
+  }, [materialid, rentid]);
+
+  useEffect(() => {
+    setStartDate(rent.startDate);
+  }, [rent]);
+
+  useEffect(() => {
+    setEndDate(rent.endDate);
+  }, [rent]);
+
+  useEffect(() => {
+    setStatus(rent.status);
+  }, [rent]);
 
   const navigate = useNavigate();
 
   const handleStartDate = (e) => setStartDate(e.target.value);
   const handleEndDate = (e) => setEndDate(e.target.value);
   const handleStatus = (e) => setStatus(e.target.value);
-  const handleRentedTo = (e) => setRentedTo(e.target.value);
-  const handleAdresse = (e) => setAdresse(e.target.value);
 
-  const handleRentSubmit = async (e) => {
+  const handleMaterialSubmit = async (e) => {
     e.preventDefault();
-    const requestBody = {
-      startDate,
-      endDate,
-      status,
-      rentedTo,
-      adresse,
-      materialId: materialid,
-      ownerId: user.id,
-    };
 
+    const requestBody = {
+      endDate,
+      startDate,
+      status,
+    };
     axios
-      .post(`${API_URL}/material/${materialid}/rents`, requestBody)
+      .patch(
+        `https://handishare.herokuapp.com/api/material/${materialid}/rent/${rentid}`,
+        requestBody
+      )
       .then((response) => {
         console.log(response);
-        console.log({ user });
-        navigate(`/`);
+        navigate(`/material/${materialid}/all-rents`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -51,9 +65,11 @@ function AddRent(props) {
 
   return (
     <div>
-      <div>
-        <form onSubmit={handleRentSubmit}>
-          <div className="cases">
+      <Navigation />
+
+      <div className="formLog">
+        <form onSubmit={handleMaterialSubmit}>
+          <div>
             <label htmlFor="startDate">Date début</label>
             <input
               type="date"
@@ -61,6 +77,8 @@ function AddRent(props) {
               id="startDate"
               value={startDate}
               onChange={handleStartDate}
+              placeholder={rent.startDate}
+              defaultValue={rent.startDate}
             />
           </div>
           <div className="cases">
@@ -71,6 +89,8 @@ function AddRent(props) {
               id="endDate"
               value={endDate}
               onChange={handleEndDate}
+              placeholder={rent.endDate}
+              defaultValue={rent.endDate}
             />
           </div>
           <div className="cases">
@@ -81,42 +101,24 @@ function AddRent(props) {
               id="status"
               value={status}
               onChange={handleStatus}
+              placeholder={rent.status}
+              defaultValue={rent.status}
             >
               {" "}
               <option value="En cours">En cours</option>
               <option value="Rendu">Rendu</option>
             </select>
           </div>
-          <div className="cases">
-            <label htmlFor="rentedTo">Prêté à</label>
-            <input
-              type="text"
-              name="rentedTo"
-              id="rentedTo"
-              value={rentedTo}
-              onChange={handleRentedTo}
-            />
-          </div>
-          <div className="cases">
-            <label htmlFor="adresse">Adresse de la famille</label>
-            <input
-              type="text"
-              name="adresse"
-              id="adresse"
-              value={adresse}
-              onChange={handleAdresse}
-            />
-          </div>
-          <div className="cases">
-            <button type="submit">Créer fiche de prêt</button>
+          <div>
+            <input className="buttonCss" type="submit" value="Modifier" />
           </div>
         </form>
       </div>
       <div>
-        {errorMessage && <p className="error-message">{errorMessage} </p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
     </div>
   );
 }
 
-export default AddRent;
+export default UpdateRent;
