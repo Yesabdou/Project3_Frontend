@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../../components/Navigation";
 import RegisterForm from "../../components/Log/RegisterForm";
+import NewRegisterForm from "../../components/Log/NewRegisterForm";
 
 // import { useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
@@ -11,6 +12,7 @@ const Register = () => {
     <div>
       <Navigation />
       <RegisterForm />
+      {/* <NewRegisterForm /> */}
     </div>
   );
 };

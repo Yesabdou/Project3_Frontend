@@ -16,6 +16,7 @@ import Rents from "./components/rent/DisplayRentsForOneMatreial";
 import RentsByUser from "./components/rent/DisplayRentsForOneUser";
 import UserProfil from "./pages /logPages/UserProfil";
 import UpdateMaterialPage from "./pages /materiel/UpdateMaterialPage";
+import UpdateRentPage from "./pages /rent/UpdateRentPage";
 
 function App() {
   return (
@@ -54,6 +55,10 @@ function App() {
           <Route
             path="/material/:materialid/rents"
             element={<AddRentPage />}
+          ></Route>
+          <Route
+            path="/material/:materialid/rents/:rentid/update"
+            element={<UpdateRentPage />}
           ></Route>
           <Route
             path="/material/:materialid/all-rents"
