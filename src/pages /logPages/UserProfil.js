@@ -5,59 +5,82 @@ import MaterialSquare from "../../components/material/MaterialSquare";
 import Navigation from "../../components/Navigation";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import Modal from "../../components/Modal";
 
 const UserProfil = () => {
+  // User  logs states
   const [showInfos, setShowShowInfo] = useState(true);
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const removeToken = () => {
     localStorage.removeItem("authToken");
   };
-  // const handleModals = (e) => {
-  //   if (e.target.id === "carte") {
-  //     setShowShowInfo(true);
-  //   } else if (e.target.id === "liste") {
-  //     setShowShowInfo(false);
-  //   }
-  // };
 
+  // Animation button
+  const [hidenMessage, setHidenMessage] = useState("");
+
+  // popUp message when click on delete
   const toggleInfos = () => {
     setShowShowInfo(!showInfos);
   };
+  const [showModal, setShowModal] = useState(false);
 
-  const [association, setOneAssociation] = useState({});
-  const { id } = useParams(); // dans le router j'ai mis un /:id ue je recupere ici avec le useParams
-
+  const [association, setOneAssociation] = useState({}); // dans le router j'ai mis un /:id ue je recupere ici avec le useParams
+  // call axios with the current logedin user id
   useEffect(() => {
-    //dès que le composant est monté jouer axios
     axios
       .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
       .then((res) => setOneAssociation(res.data));
   }, []);
 
+  // show hide popup delte
+  const ToggleModale = () => {
+    setShowModal(!showModal);
+  };
+
+  // function delete user
   const deleteUser = () => {
     axios
-      .delete(`https://handishare.herokuapp.com/api/user/${id}/delete`)
+      .delete(`https://handishare.herokuapp.com/api/user/${user.id}/delete`)
       .then((res) => console.log(res));
     navigate("/");
 
     removeToken();
   };
 
-  // const [showPopup, setShowPopup] = React.useState(true);
+  // call axios to show material
   const [materials, setMaterial] = useState([]);
-
   useEffect(() => {
-    //dès que le composant est monté jouer axios
     axios
       .get("https://handishare.herokuapp.com/api/material")
 
       .then((res) => setMaterial(res.data));
   }, []);
+  //---------------------------------------
 
   return (
     <div className="pageOneAssociation">
       <Navigation />
+
+      {/* popup delete  */}
+      {showModal ? (
+        <div className="popUp">
+          <Modal>
+            <h2>Voulez vous vraiment supprimer votre profil ?</h2>
+            <p>
+              Cette opération entrainera la suppression de votre compte et
+              toutes les informations associées{" "}
+            </p>
+            <div className="deleteButton" onClick={deleteUser}>
+              Supprimer votre profil
+            </div>
+
+            <NavLink className="" to="/">
+              <div className="backkButton">Revenir en arrière</div>
+            </NavLink>
+          </Modal>
+        </div>
+      ) : null}
 
       <div className="page ">
         <section>
@@ -109,7 +132,7 @@ const UserProfil = () => {
                       <path d="M0 64C0 28.65 28.65 0 64 0H224V128C224 145.7 238.3 160 256 160H384V299.6L289.3 394.3C281.1 402.5 275.3 412.8 272.5 424.1L257.4 484.2C255.1 493.6 255.7 503.2 258.8 512H64C28.65 512 0 483.3 0 448V64zM256 128V0L384 128H256zM564.1 250.1C579.8 265.7 579.8 291 564.1 306.7L534.7 336.1L463.8 265.1L493.2 235.7C508.8 220.1 534.1 220.1 549.8 235.7L564.1 250.1zM311.9 416.1L441.1 287.8L512.1 358.7L382.9 487.9C378.8 492 373.6 494.9 368 496.3L307.9 511.4C302.4 512.7 296.7 511.1 292.7 507.2C288.7 503.2 287.1 497.4 288.5 491.1L303.5 431.8C304.9 426.2 307.8 421.1 311.9 416.1V416.1z" />
                     </svg>
                   </div>
-                  <div className="delete" onClick={deleteUser}>
+                  <div className="delete" onClick={ToggleModale}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 448 512"
@@ -127,11 +150,17 @@ const UserProfil = () => {
 
         {isLoggedIn && (
           <section className="miniNavBar">
-            <NavLink className="" to={{ pathname: `/material/new` }}>
+            <NavLink
+              onMouseEnter={() => setHidenMessage("  Ajouter un material")}
+              onMouseLeave={() => setHidenMessage("")}
+              className=""
+              to={{ pathname: `/material/new` }}
+            >
               <div className="add">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                   <path d="M464 96h-192l-64-64h-160C21.5 32 0 53.5 0 80v352C0 458.5 21.5 480 48 480h416c26.5 0 48-21.5 48-48v-288C512 117.5 490.5 96 464 96zM336 311.1h-56v56C279.1 381.3 269.3 392 256 392c-13.27 0-23.1-10.74-23.1-23.1V311.1H175.1C162.7 311.1 152 301.3 152 288c0-13.26 10.74-23.1 23.1-23.1h56V207.1C232 194.7 242.7 184 256 184s23.1 10.74 23.1 23.1V264h56C349.3 264 360 274.7 360 288S349.3 311.1 336 311.1z" />
                 </svg>
+                <span className="hidenText"> {hidenMessage}</span>
               </div>
             </NavLink>
             <div className="backButton">
@@ -146,7 +175,8 @@ const UserProfil = () => {
           </section>
         )}
         {isLoggedIn && (
-          <section>
+          <section className="">
+            <h1>materiel </h1>
             <ul className="ownedMaterial">
               {materials.map((material, index) => (
                 <MaterialSquare key={index} material={material} />

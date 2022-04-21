@@ -92,6 +92,26 @@ const Handi = () => {
             <hr />
           </div>
           <div>
+            <div className="incrusteVideo">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/A3_vUWG28sU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/Xw1ANtJJkHg"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
             <h2 id="quelques-chiffres-cles">Quelques chiffres cl&eacute;s</h2>
 
             <figure

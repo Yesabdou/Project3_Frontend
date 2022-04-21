@@ -20,7 +20,7 @@
   font-size: 3rem;
 }
 .infoAssociation h2 {
-  color: #bdb9b9;
+  color: #ffffff;
 }
 .infoAssociation svg {
   width: 60px;
@@ -95,6 +95,9 @@
   border-radius: 100px;
   position: relative;
   right: -40px;
+  display: flex;
+  align-content: center;
+  justify-items: center;
 }
 .add svg {
   width: 27px;
@@ -105,6 +108,11 @@
 .add:hover {
   background-color: rgb(63, 145, 67);
   cursor: pointer;
+}
+.hidenText {
+  padding: 5px 0px;
+  padding-left: 5px;
+  color: white;
 }
 
 .crudbutton {
@@ -127,7 +135,7 @@
 
 .miniNavBar {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
@@ -139,7 +147,7 @@
   right: 50px;
 }
 .back {
-  width: 60px;
+  width: 55px;
   fill: #f7bc08;
 }
 .back:hover {
@@ -162,4 +170,8 @@
 }
 .plusInfos h2:hover {
   color: #000000;
+}
+
+h1 {
+  text-align: center;
 }

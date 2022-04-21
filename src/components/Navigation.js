@@ -61,7 +61,7 @@ const Navigation = (props) => {
           )}
 
           {isLoggedIn && (
-            <Link to="/user/:id">
+            <Link to="/user">
               <button className="authButton">
                 <svg
                   className="user"
