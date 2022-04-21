@@ -13,7 +13,6 @@ import LogIn from "./pages /logPages/Login";
 import AddMaterialPage from "./pages /materiel/CreateMaterialPage";
 import AddRentPage from "./pages /rent/CreateRentPage";
 import Rents from "./components/rent/DisplayRentsForOneMatreial";
-import RentsByUser from "./components/rent/DisplayRentsForOneUser";
 import UserProfil from "./pages /logPages/UserProfil";
 import UpdateMaterialPage from "./pages /materiel/UpdateMaterialPage";
 import UpdateRentPage from "./pages /rent/UpdateRentPage";
@@ -46,10 +45,6 @@ function App() {
           <Route
             path="/material/:materialid/all-rents"
             element={<Rents />}
-          ></Route>
-          <Route
-            path="/user/:userid/all-rents"
-            element={<RentsByUser />}
           ></Route>
 
           <Route path="/user/:id" element={<UserProfil />}></Route>
