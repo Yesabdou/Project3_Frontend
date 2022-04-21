@@ -17,6 +17,7 @@ import RentsByUser from "./components/rent/DisplayRentsForOneUser";
 import UserProfil from "./pages /logPages/UserProfil";
 import UpdateMaterialPage from "./pages /materiel/UpdateMaterialPage";
 import UpdateRentPage from "./pages /rent/UpdateRentPage";
+import UpdateProfile from "./pages /logPages/UpdateProfile";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           ></Route>
 
           <Route path="/user/:id" element={<UserProfil />}></Route>
+          <Route path="/user/edit" element={<UpdateProfile />}></Route>
           <Route
             path="/material/:materialid/rents"
             element={<AddRentPage />}

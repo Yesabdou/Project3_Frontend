@@ -41,7 +41,7 @@ function AddRent(props) {
       .then((response) => {
         console.log(response);
         console.log({ user });
-        navigate(`/`);
+        navigate(`/material/${materialid}`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -51,7 +51,7 @@ function AddRent(props) {
 
   return (
     <div>
-      <div>
+      <div className=" formLog">
         <form onSubmit={handleRentSubmit}>
           <div className="cases">
             <label htmlFor="startDate">Date début</label>
@@ -83,6 +83,8 @@ function AddRent(props) {
               onChange={handleStatus}
             >
               {" "}
+              <option>-----</option>
+              <option value="A venir">A venir</option>
               <option value="En cours">En cours</option>
               <option value="Rendu">Rendu</option>
             </select>
@@ -108,7 +110,9 @@ function AddRent(props) {
             />
           </div>
           <div className="cases">
-            <button type="submit">Créer fiche de prêt</button>
+            <button className="buttonCss" type="submit">
+              Créer fiche de prêt
+            </button>
           </div>
         </form>
       </div>
