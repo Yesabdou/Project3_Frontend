@@ -5,6 +5,7 @@ const RentSquare = ({ rent }) => {
   return (
     <>
       <li className="materialSquare">
+
         <h1>Status:</h1>
         <p
           className={`${
@@ -27,6 +28,7 @@ const RentSquare = ({ rent }) => {
           <p className="description">
             Fin du prêt: {new Date(rent.endDate).toLocaleDateString("fr")}
           </p>
+
           <p className="description">Prêté à: {rent.rentedTo}</p>
           <p className="description">Adresse de la famille: {rent.adresse}</p>
         </div>

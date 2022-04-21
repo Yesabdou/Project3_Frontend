@@ -55,7 +55,7 @@ function UpdateRent(props) {
       )
       .then((response) => {
         console.log(response);
-        navigate(`/material/${materialid}/all-rents`);
+        navigate(`/material/${materialid}`);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
