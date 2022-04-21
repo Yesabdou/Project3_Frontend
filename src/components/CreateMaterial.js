@@ -11,7 +11,6 @@ function AddMaterial(props) {
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
   const [image, setImage] = useState(null);
-
   const [condition, setCondition] = useState("");
   const [ageMin, setAgeMin] = useState("");
   const [ageMax, setAgeMax] = useState("");
