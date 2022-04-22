@@ -17,7 +17,7 @@ import UserProfil from "./pages /logPages/UserProfil";
 import UpdateMaterialPage from "./pages /materiel/UpdateMaterialPage";
 import UpdateRentPage from "./pages /rent/UpdateRentPage";
 import UpdateProfile from "./pages /logPages/UpdateProfile";
-import Calendrier from "./components/Calendrier";
+import Calendrier from "./components/rent/Calendrier";
 
 function App() {
   return (

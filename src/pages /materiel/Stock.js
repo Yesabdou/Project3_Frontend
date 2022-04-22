@@ -4,7 +4,7 @@ import SearchBar from "../../components/SearchBar";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../../api/service";
 
 const Stock = () => {
   const [materials, setMaterial] = useState([]);
@@ -19,7 +19,7 @@ const Stock = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("https://handishare.herokuapp.com/api/material").then((res) => {
+    api.get("/material").then((res) => {
       setMaterial(res.data);
       setMaterialFiltered(res.data);
     });

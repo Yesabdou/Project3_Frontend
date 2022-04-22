@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import { api } from "../../api/service";
 
 function NewRegisterForm(props) {
   const { user } = useContext(AuthContext);
@@ -16,10 +16,7 @@ function NewRegisterForm(props) {
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    if (user)
-      axios
-        .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
-        .then((res) => setProfile(res.data));
+    if (user) api.get(`/user/${user.id}`).then((res) => setProfile(res.data));
   }, [user]);
 
   useEffect(() => {
@@ -61,11 +58,8 @@ function NewRegisterForm(props) {
       adresse,
     };
 
-    axios
-      .put(
-        `https://handishare.herokuapp.com/api/user/${user.id}/update`,
-        requestBody
-      )
+    api
+      .put(`/user/${user.id}/update`, requestBody)
       .then((response) => {
         console.log(response);
         navigate(`/user`);

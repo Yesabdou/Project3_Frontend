@@ -64,11 +64,6 @@ function AddMaterial(props) {
     }
   };
 
-  const [message, setMessage] = useState();
-  const handleChangeInput = (e) => {
-    setMessage(e.target.value);
-  };
-
   return (
     <div>
       <Navigation />
@@ -94,7 +89,6 @@ function AddMaterial(props) {
               value={category}
               onChange={handleCategory}
             >
-              {" "}
               <option value="Fauteuil roulant">Fauteuil roulant</option>
               <option value="Chaise adaptée">Chaise adaptée</option>
               <option value="Matériel ludique">Matériel ludique</option>

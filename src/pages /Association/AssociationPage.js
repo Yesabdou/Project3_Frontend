@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import MaterialSquare from "../../components/material/MaterialSquare";
@@ -6,6 +5,7 @@ import Navigation from "../../components/Navigation";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import Map, { Marker } from "react-map-gl";
+import { api } from "../../api/service";
 
 const AssociationPage = () => {
   const style = {
@@ -18,7 +18,6 @@ const AssociationPage = () => {
 
   const [showInfos, setShowShowInfo] = useState(true);
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  const navigate = useNavigate();
   const removeToken = () => {
     localStorage.removeItem("authToken");
   };
@@ -39,9 +38,7 @@ const AssociationPage = () => {
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    axios
-      .get(`https://handishare.herokuapp.com/api/user/${id}`)
-      .then((res) => setOneAssociation(res.data));
+    api.get(`/user/${id}`).then((res) => setOneAssociation(res.data));
   }, []);
 
   // const [showPopup, setShowPopup] = React.useState(true);
@@ -49,8 +46,8 @@ const AssociationPage = () => {
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    axios
-      .get("https://handishare.herokuapp.com/api/material")
+    api
+      .get("/material")
 
       .then((res) => {
         console.log(res.data);

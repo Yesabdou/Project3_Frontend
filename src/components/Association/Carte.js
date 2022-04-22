@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map from "react-map-gl";
 import { Marker } from "react-map-gl";
-import axios from "axios";
+import { api } from "../../api/service";
 
 const Carte = () => {
   const [associations, setAssociation] = useState([]);
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    axios
-      .get("https://handishare.herokuapp.com/api/user")
+    api
+      .get("/user")
 
       .then((res) => setAssociation(res.data));
   }, []);

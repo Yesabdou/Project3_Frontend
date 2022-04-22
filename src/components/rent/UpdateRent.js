@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "../Navigation";
-import axios from "axios";
+import { api } from "../../api/service";
 
 function UpdateRent(props) {
   // const { user } = useContext(AuthContext);
@@ -15,10 +15,8 @@ function UpdateRent(props) {
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    axios
-      .get(
-        `https://handishare.herokuapp.com/api/material/${materialid}/rent/${rentid}`
-      )
+    api
+      .get(`/material/${materialid}/rent/${rentid}`)
       .then((res) => setRent(res.data));
   }, [materialid, rentid]);
 
@@ -48,11 +46,8 @@ function UpdateRent(props) {
       startDate,
       status,
     };
-    axios
-      .patch(
-        `https://handishare.herokuapp.com/api/material/${materialid}/rent/${rentid}`,
-        requestBody
-      )
+    api
+      .patch(`material/${materialid}/rent/${rentid}`, requestBody)
       .then((response) => {
         console.log(response);
         navigate(`/material/${materialid}`);

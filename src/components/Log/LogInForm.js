@@ -1,17 +1,14 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
-
-const API_URL = "https://handishare.herokuapp.com/api";
+import { api } from "../../api/service";
 
 function LoginForm(props) {
   const logError = document.querySelector(".error");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -23,8 +20,8 @@ function LoginForm(props) {
     e.preventDefault();
     const requestBody = { email, password };
 
-    axios
-      .post(`${API_URL}/user/login`, requestBody)
+    api
+      .post(`/user/login`, requestBody)
       .then((res) => {
         console.log(res.data);
 
