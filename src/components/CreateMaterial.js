@@ -64,11 +64,6 @@ function AddMaterial(props) {
     }
   };
 
-  const [message, setMessage] = useState();
-  const handleChangeInput = (e) => {
-    setMessage(e.target.value);
-  };
-
   return (
     <div>
       <Navigation />
