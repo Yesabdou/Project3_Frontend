@@ -8,10 +8,10 @@ const MaterialSquare = ({ material }) => {
         <img src={material.picture} alt="" />
         <h2>Référence : {material.ref}</h2>
         <h1>{material.name}</h1>
-        <div className="">
+        <div className="descriptionContainer">
           <p className="description">{material.description}</p>
         </div>
-        <div className="p">
+        <div className="description">
           <div>
             <Link to={{ pathname: `/material/${material._id}` }}>
               <p className="preview"> Vérifier les disponibilités </p>

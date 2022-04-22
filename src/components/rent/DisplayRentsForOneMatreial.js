@@ -17,7 +17,7 @@ const Rents = () => {
   }, []);
 
   return (
-    <ul className="listMaterial">
+    <ul className="listMaterial" data-aos="fade">
       {rents.map((rents, index) => (
         <RentSquare key={index} rent={rents} />
       ))}

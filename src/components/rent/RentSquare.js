@@ -4,8 +4,17 @@ import { renderIntoDocument } from "react-dom/test-utils";
 const RentSquare = ({ rent }) => {
   return (
     <>
-      <li className="materialSquare">
-
+      <li
+        className={`materialSquare ${
+          rent.status === "En cours"
+            ? "red"
+            : "" || rent.status === "Rendu"
+            ? "green"
+            : "" || rent.status === "A venir"
+            ? "orange"
+            : ""
+        }`}
+      >
         <h1>Status:</h1>
         <p
           className={`${

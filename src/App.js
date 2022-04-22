@@ -17,12 +17,15 @@ import UserProfil from "./pages /logPages/UserProfil";
 import UpdateMaterialPage from "./pages /materiel/UpdateMaterialPage";
 import UpdateRentPage from "./pages /rent/UpdateRentPage";
 import UpdateProfile from "./pages /logPages/UpdateProfile";
+import Calendrier from "./components/Calendrier";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/calendrier" element={<Calendrier />}></Route>
+
           <Route path="/" element={<Home />}></Route>
           <Route path="/user/register" element={<Register />}></Route>
           <Route path="/user/login" element={<LogIn />}></Route>
@@ -49,6 +52,7 @@ function App() {
 
           <Route path="/user/:id" element={<UserProfil />}></Route>
           <Route path="/user/edit" element={<UpdateProfile />}></Route>
+
           <Route
             path="/material/:materialid/rents"
             element={<AddRentPage />}

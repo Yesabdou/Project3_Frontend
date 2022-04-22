@@ -1,7 +1,7 @@
 .associationSquare {
   position: relative;
   width: 20%;
-  height: 80%;
+  height: 300px;
   background-color: white;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.187);
   border-radius: 20px;
@@ -27,10 +27,8 @@
   position: absolute;
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
-  top: 0;
-  left: 0;
   background: rgba(0, 0, 0, 0.9);
-  color: white;
+
   height: 100%;
   width: 100%;
   display: grid;
@@ -59,13 +57,18 @@
 .associationSquare > h1 {
   color: #f7bc08;
   padding-bottom: 10px;
+  white-space: pre-line;
+  margin: 10px;
+  font-size: 1.2rem;
 }
 .associationSquare > h2 {
   color: #999999;
   padding-top: 10px;
   padding-bottom: 10px;
+  white-space: pre-line;
 }
 .Description {
   text-align: justify;
   width: 140px;
+  white-space: pre-wrap;
 }

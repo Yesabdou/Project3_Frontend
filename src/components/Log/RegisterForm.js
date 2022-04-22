@@ -1,10 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { createUser } from "../../api/service";
-
-const API_URL = "https://handishare.herokuapp.com/api";
 
 function RegisterForm(props) {
   const [pseudo, setPseudo] = useState("");
@@ -16,7 +13,7 @@ function RegisterForm(props) {
   const [picture, setPicture] = useState("");
   const [image, setImage] = useState(null);
   const [adresse, setAdresse] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [errorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
@@ -113,6 +110,7 @@ function RegisterForm(props) {
             type="string"
             name="adresse"
             id="adresse"
+            maxlength="1024"
             value={adresse}
             onChange={handleAdresse}
           />

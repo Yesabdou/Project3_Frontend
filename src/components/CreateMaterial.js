@@ -5,6 +5,7 @@ import { createNewMaterial } from "../api/service";
 import { AuthContext } from "../../src/context/auth.context";
 
 function AddMaterial(props) {
+  const maxDescriptionLength = 1024;
   const { user } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -14,13 +15,22 @@ function AddMaterial(props) {
   const [condition, setCondition] = useState("");
   const [ageMin, setAgeMin] = useState("");
   const [ageMax, setAgeMax] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [errorMessage] = useState(undefined);
+  const [descriptionIsTooLong, setDescriptionIsTooLong] = useState(false);
 
   const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
   const handleCategory = (e) => setCategory(e.target.value);
-  const handleDescription = (e) => setDescription(e.target.value);
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+    if (e.target.value.length >= maxDescriptionLength) {
+      setDescriptionIsTooLong(true);
+    } else {
+      setDescriptionIsTooLong(false);
+    }
+  };
+
   const handlePicture = (e) => {
     setImage(e.target.files[0]);
     setPicture(e.target.value);
@@ -54,6 +64,11 @@ function AddMaterial(props) {
     }
   };
 
+  const [message, setMessage] = useState();
+  const handleChangeInput = (e) => {
+    setMessage(e.target.value);
+  };
+
   return (
     <div>
       <Navigation />
@@ -85,15 +100,19 @@ function AddMaterial(props) {
               <option value="Matériel ludique">Matériel ludique</option>
             </select>
           </div>
-          <div className="cases">
+          <div className="cases descriptions">
             <label htmlFor="description">Descritpion</label>
-            <input
-              type="text"
+            <textarea
+              // type="text"
+              maxLength={maxDescriptionLength}
               name="description"
               id="description"
               value={description}
               onChange={handleDescription}
             />
+            {descriptionIsTooLong && (
+              <div className="error"> Too long max {maxDescriptionLength} </div>
+            )}
           </div>
           <div className="pictureFile">
             <label className="" htmlFor="picture">

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Filtres from "./buttons/Filtre";
 import filter from "../assets/images/Filter.png";
 import Onefilter from "./Onefilter";
 import { useLocation } from "react-router-dom";

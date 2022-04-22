@@ -30,7 +30,9 @@ const Stock = () => {
       material.name.toUpperCase().includes(keyword.toUpperCase())
     );
     if (catg) {
-      filtered = filtered.filter((material) => (material.category = catg));
+      filtered = filtered.filter(
+        (material) => material.category === catg.value
+      );
     }
     setMaterialFiltered(filtered);
     console.log(filtered);

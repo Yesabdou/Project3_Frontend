@@ -11,9 +11,6 @@ const AssociationSquare = ({ association }) => {
       />
       <h2>Finess : {association.finess}</h2>
       <h1>{association.pseudo}</h1>
-      <div className="Description">
-        <p>{association.bio}</p>
-      </div>
 
       <div>
         <Link to={{ pathname: `/association/${association._id}` }}>

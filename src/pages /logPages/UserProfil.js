@@ -6,8 +6,32 @@ import Navigation from "../../components/Navigation";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import Modal from "../../components/Modal";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const UserProfil = () => {
+  //hide navbar
+  const [showNavBar, setShowNavbar] = useState(true);
+  const controlSearchBAr = () => {
+    if (window.scrollY > 10) {
+      setShowNavbar(false);
+    } else {
+      setShowNavbar(true);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", controlSearchBAr);
+
+    return () => {
+      window.removeEventListener("scroll", controlSearchBAr);
+    };
+  }, []);
+
+  //animations
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   // User  logs states
   const [showInfos, setShowShowInfo] = useState(true);
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -30,7 +54,7 @@ const UserProfil = () => {
   useEffect(() => {
     if (user)
       axios
-        .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
+        .get(`https://handishare.herokuapp.com/api/user/${user?.id}`)
         .then((res) => setOneAssociation(res.data));
   }, [user]);
   // useEffect(() => {
@@ -44,7 +68,7 @@ const UserProfil = () => {
   // function delete user
   const deleteUser = () => {
     axios
-      .delete(`https://handishare.herokuapp.com/api/user/${user.id}/delete`)
+      .delete(`https://handishare.herokuapp.com/api/user/${user?.id}/delete`)
       .then((res) => console.log(res));
     navigate("/");
 
@@ -63,7 +87,7 @@ const UserProfil = () => {
 
   return (
     <div className="pageOneAssociation">
-      <Navigation />
+      <Navigation navEffect={`${showNavBar ? "appear" : "disapear"}`} />
 
       {/* popup delete  */}
       {showModal ? (
@@ -105,7 +129,7 @@ const UserProfil = () => {
           </div>
         </section>
         {!showInfos ? (
-          <section className="plusInfos">
+          <section data-aos="fade-down" className="plusInfos">
             <div className="infoContainer">
               <h3>Adresse :</h3>
               <a
@@ -127,7 +151,7 @@ const UserProfil = () => {
 
               {user && (
                 <>
-                  <NavLink className="" to="user/edit">
+                  <a href="/user/edit">
                     <div className="edit">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +160,7 @@ const UserProfil = () => {
                         <path d="M0 64C0 28.65 28.65 0 64 0H224V128C224 145.7 238.3 160 256 160H384V299.6L289.3 394.3C281.1 402.5 275.3 412.8 272.5 424.1L257.4 484.2C255.1 493.6 255.7 503.2 258.8 512H64C28.65 512 0 483.3 0 448V64zM256 128V0L384 128H256zM564.1 250.1C579.8 265.7 579.8 291 564.1 306.7L534.7 336.1L463.8 265.1L493.2 235.7C508.8 220.1 534.1 220.1 549.8 235.7L564.1 250.1zM311.9 416.1L441.1 287.8L512.1 358.7L382.9 487.9C378.8 492 373.6 494.9 368 496.3L307.9 511.4C302.4 512.7 296.7 511.1 292.7 507.2C288.7 503.2 287.1 497.4 288.5 491.1L303.5 431.8C304.9 426.2 307.8 421.1 311.9 416.1V416.1z" />
                       </svg>
                     </div>
-                  </NavLink>
+                  </a>
 
                   <div className="delete" onClick={ToggleModale}>
                     <svg
@@ -184,22 +208,14 @@ const UserProfil = () => {
           <section className="ownedMaterial ">
             <div>
               <h1>Inventaire du materiel : </h1>
-              <ul className="ownedMaterial">
+              <ul data-aos="fade-up" className="ownedMaterial">
                 {materials
                   .filter((material) => material?.owner?._id === user.id)
                   .map((material, index) => (
-                    <MaterialSquare key={index} material={material} />
+                    <MaterialSquare key={material._id} material={material} />
                   ))}
               </ul>
             </div>
-            {/* <div>
-              <h1>Fiches de prêt </h1>
-              <ul>
-                <ul className="ownedMaterial">
-                  <RentsByUser />
-                </ul>
-              </ul>
-            </div> */}
           </section>
         )}
       </div>

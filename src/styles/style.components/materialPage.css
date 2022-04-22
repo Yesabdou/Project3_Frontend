@@ -4,7 +4,7 @@
 }
 
 .materialPicture {
-  width: 70%;
+  width: 40vw;
   margin-left: 40px;
   border-radius: 9px;
 }
@@ -61,18 +61,42 @@
 }
 
 .red {
-  color: #ff0000;
+  color: white;
   font-weight: bold;
   font-size: 2rem;
+  background-color: #e34b4b;
+  border-radius: 9px;
+  padding: 10px;
 }
 
 .orange {
-  color: orange;
+  color: white;
   font-weight: bold;
   font-size: 2rem;
+  background-color: #e3804b8e;
+  border-radius: 9px;
+  padding: 10px;
 }
 .green {
-  color: green;
-  font-size: 2rem;
+  color: white;
   font-weight: bold;
+  font-size: 2rem;
+  background-color: #4f9650af;
+  border-radius: 9px;
+  padding: 10px;
+}
+
+.green h2 {
+  font-size: 1rem;
+}
+
+.red h2 {
+  font-size: 1rem;
+}
+.orange h2 {
+  font-size: 1rem;
+}
+
+.crudLogo {
+  width: 70px;
 }

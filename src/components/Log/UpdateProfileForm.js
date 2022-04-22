@@ -6,7 +6,6 @@ import { AuthContext } from "../../context/auth.context";
 
 function NewRegisterForm(props) {
   const { user } = useContext(AuthContext);
-  const { id } = useParams();
   const [profile, setProfile] = useState({});
   const [pseudo, setPseudo] = useState("");
   const [finess, setFiness] = useState("");
@@ -17,9 +16,10 @@ function NewRegisterForm(props) {
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    axios
-      .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
-      .then((res) => setProfile(res.data));
+    if (user)
+      axios
+        .get(`https://handishare.herokuapp.com/api/user/${user.id}`)
+        .then((res) => setProfile(res.data));
   }, [user]);
 
   useEffect(() => {
