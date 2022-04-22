@@ -48,24 +48,24 @@ const Calendrier = () => {
 
   return (
     <div className="App">
-      <h1>Calendar</h1>
-      <h2>Add New Event</h2>
+      <h1>Calendrier des reservations </h1>
+      <h2> Ajouter une nouvelle location</h2>
       <div>
         <input
           type="text"
-          placeholder="Add Title"
+          placeholder="Nom de la réservation"
           style={{ width: "20%", marginRight: "10px" }}
           value={newEvent.title}
           onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
         />
         <DatePicker
-          placeholderText="Start Date"
+          placeholderText="Démarage de la location"
           style={{ marginRight: "10px" }}
           selected={newEvent.start}
           onChange={(start) => setNewEvent({ ...newEvent, start })}
         />
         <DatePicker
-          placeholderText="End Date"
+          placeholderText="Fin de la location"
           selected={newEvent.end}
           onChange={(end) => setNewEvent({ ...newEvent, end })}
         />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const API_URL = "https://handishare.herokuapp.com/api";
+import { api } from "../api/service";
 
 const AuthContext = React.createContext();
 
@@ -20,8 +20,8 @@ function AuthProviderWrapper(props) {
     // If the token exists in the localStorage
     if (storedToken) {
       // We must send the JWT token in the request's "Authorization" Headers
-      axios
-        .get(`${API_URL}/user/verify`, {
+      api
+        .get(`/user/verify`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {

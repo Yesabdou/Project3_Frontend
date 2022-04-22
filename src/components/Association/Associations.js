@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useEffect } from "react";
 import AssociationSquare from "./AssociationSquare";
+import { api } from "../../api/service";
 
 const Associations = () => {
   const [associations, setAssociation] = useState([]);
@@ -10,9 +10,7 @@ const Associations = () => {
     //dès que le composant est monté jouer axios
     const getFunction = async (req, res) => {
       try {
-        const res = await axios.get(
-          "https://handishare.herokuapp.com/api/user"
-        );
+        const res = await api.get("/user");
         setAssociation(res.data);
       } catch (error) {
         console.log(error);

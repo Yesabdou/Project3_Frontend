@@ -3,8 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-
-const API_URL = "https://handishare.herokuapp.com/api";
+import { api } from "../../api/service";
 
 function AddRent(props) {
   const { user } = useContext(AuthContext);
@@ -36,8 +35,8 @@ function AddRent(props) {
       ownerId: user.id,
     };
 
-    axios
-      .post(`${API_URL}/material/${materialid}/rents`, requestBody)
+    api
+      .post(`/material/${materialid}/rents`, requestBody)
       .then((response) => {
         console.log(response);
         console.log({ user });

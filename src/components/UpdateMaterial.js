@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "./Navigation";
-import axios from "axios";
 
-const API_URL = "https://handishare.herokuapp.com/api";
+import { api } from "../api/service";
 
 function UpdateMaterial(props) {
   const { id } = useParams();
@@ -11,9 +10,7 @@ function UpdateMaterial(props) {
 
   useEffect(() => {
     //dès que le composant est monté jouer axios
-    axios
-      .get(`https://handishare.herokuapp.com/api/material/${id}`)
-      .then((res) => setMaterial(res.data));
+    api.get(`/material/${id}`).then((res) => setMaterial(res.data));
   }, [id]);
 
   const [name, setName] = useState("");
@@ -47,8 +44,8 @@ function UpdateMaterial(props) {
       description,
       condition,
     };
-    axios
-      .put(`${API_URL}/material/${id}`, requestBody)
+    api
+      .put(`/material/${id}`, requestBody)
       .then((response) => {
         console.log(response);
         navigate(`/list-materiels`);

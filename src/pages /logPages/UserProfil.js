@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/auth.context";
 import Modal from "../../components/Modal";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { api } from "../../api/service";
 
 const UserProfil = () => {
   //hide navbar
@@ -53,9 +54,7 @@ const UserProfil = () => {
   // call axios with the current logedin user id
   useEffect(() => {
     if (user)
-      axios
-        .get(`https://handishare.herokuapp.com/api/user/${user?.id}`)
-        .then((res) => setOneAssociation(res.data));
+      api.get(`/user/${user?.id}`).then((res) => setOneAssociation(res.data));
   }, [user]);
   // useEffect(() => {
   //   console.log("in useeffect looking at user i get", user);
@@ -67,9 +66,7 @@ const UserProfil = () => {
 
   // function delete user
   const deleteUser = () => {
-    axios
-      .delete(`https://handishare.herokuapp.com/api/user/${user?.id}/delete`)
-      .then((res) => console.log(res));
+    api.delete(`/user/${user?.id}/delete`).then((res) => console.log(res));
     navigate("/");
 
     removeToken();
@@ -78,8 +75,8 @@ const UserProfil = () => {
   // call axios to show material
   const [materials, setMaterial] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://handishare.herokuapp.com/api/material")
+    api
+      .get("/material")
 
       .then((res) => setMaterial(res.data));
   }, []);
