@@ -74,6 +74,7 @@ a:hover {
 
 .logo {
   width: 100px;
+  padding-right: 40px;
 }
 
 .authButton {

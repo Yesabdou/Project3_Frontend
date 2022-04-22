@@ -17,10 +17,17 @@ function AddMaterial(props) {
   const [ageMax, setAgeMax] = useState("");
   const [errorMessage] = useState(undefined);
   const [descriptionIsTooLong, setDescriptionIsTooLong] = useState(false);
-
+  const [nameIsTooShort, setNameIsTooShort] = useState(false);
   const navigate = useNavigate();
 
-  const handleName = (e) => setName(e.target.value);
+  const handleName = (e) => {
+    if (e.target.value.length <= 3) {
+      setNameIsTooShort(true);
+    } else {
+      setNameIsTooShort(false);
+    }
+    setName(e.target.value);
+  };
   const handleCategory = (e) => setCategory(e.target.value);
   const handleDescription = (e) => {
     setDescription(e.target.value);
@@ -42,10 +49,9 @@ function AddMaterial(props) {
   const handleMaterialSubmit = async (e) => {
     e.preventDefault();
     console.log("FORM SUBMISSION", { image });
-
+    // the ref is generated automaticly
     const uploadData = new FormData();
     uploadData.append("name", name);
-    // uploadData.append("ref", ref);
     uploadData.append("owner", user.id);
     uploadData.append("category", category);
     uploadData.append("description", description);
@@ -79,6 +85,12 @@ function AddMaterial(props) {
               value={name}
               onChange={handleName}
             />
+            {nameIsTooShort && (
+              <div className="error">
+                {" "}
+                Le nom est trop court, faites un effort
+              </div>
+            )}
           </div>
           <div className="cases">
             <label htmlFor="category">Catégorie</label>
@@ -105,7 +117,10 @@ function AddMaterial(props) {
               onChange={handleDescription}
             />
             {descriptionIsTooLong && (
-              <div className="error"> Too long max {maxDescriptionLength} </div>
+              <div className="error">
+                {" "}
+                Description trop longue {maxDescriptionLength}{" "}
+              </div>
             )}
           </div>
           <div className="pictureFile">
